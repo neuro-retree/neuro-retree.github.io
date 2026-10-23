@@ -25,8 +25,8 @@
   --lib-anim-pull:2000ms;
   --lib-anim-open:5000ms;
   --lib-anim-zoom:3000ms;
-  --lib-anim-close:2000ms;
-  --lib-anim-return:1500ms;
+  --lib-anim-close:3000ms;
+  --lib-anim-return:2000ms;
 }
 #libraryApp.lib-mode a{color:var(--gold)}
 #libraryApp.lib-mode button{font-family:Georgia,serif}
@@ -137,14 +137,19 @@
   --w:6px;
   transition:transform var(--lib-anim-open,900ms) cubic-bezier(.3,.7,.2,1);
 }
-.lib-book .bd-pages-block{--w:calc(var(--cw,220px)*.18)}
+.lib-book .bd-pages-block{--w:calc((var(--bw,84px) - 2*var(--th,6px))/2)}
 .lib-book .bd-single-page{--w:2px}
-/* СРЕЗ СТРАНИЦ (модель владельца): по всем боковым граням блока страниц,
-   ширина = ПОЛОВИНА толщины блока страниц ((--cw*.18)/2), а не полная толщина. */
+
+/* Торцы страниц: --w у ПЕРЕДНЕЙ/ЗАДНЕЙ граней уже = половина толщины (см. выше),
+   боковые грани получают ТУ ЖЕ половину (а не calc(--cw*.18/2)) — единая толщина. */
 .lib-book .bd-pages-block .face-top,
 .lib-book .bd-pages-block .face-bottom,
 .lib-book .bd-pages-block .face-left,
-.lib-book .bd-pages-block .face-right{--w:calc(var(--cw,220px)*.18/2)}
+.lib-book .bd-pages-block .face-right{--w:var(--w)}
+.lib-book .bd-single-page .face-top,
+.lib-book .bd-single-page .face-bottom,
+.lib-book .bd-single-page .face-left,
+.lib-book .bd-single-page .face-right{--w:var(--w)}
 /* Закрытое состояние (по модели владельца):
    Корешок (П5) — у ПЕРЕДНЕГО края (left:0), z-index поверх всего.
    Передняя обложка (П4, с названием, теперь ЛЕВАЯ .bd-cover-l) — крепится КРОМКОЙ
@@ -170,7 +175,7 @@
    Обложки, страницы и срез существуют только для раскрытия (.opening/.zooming),
    в состоянии полки они полностью убраны (display:none — visibility оставляет
    transform-позицию, и узкое ребро блока всё равно рисуется). */
-.lib-book:not(.opening):not(.zooming) .bd:not(.bd-spine){display:none}
+.lib-book:not(.pulling):not(.opening):not(.zooming) .bd:not(.bd-spine){display:none}
 /* ---------- ГРАНИ КУБА ---------- */
 .lib-book .bd .face-front{transform:translateZ(var(--w))}
 .lib-book .bd .face-back{transform:translateZ(calc(var(--w)*-1)) rotateY(180deg)}
@@ -221,7 +226,7 @@
   letter-spacing:.12em;font-weight:600;text-align:center;color:#f2e5c9;
   text-shadow:0 1px 3px rgba(0,0,0,.8);
 }
-.lib-book .bd-cover-r .title{
+.lib-book .bd-cover-l .title{
   position:absolute;left:10%;right:10%;top:50%;transform:translateY(-50%);text-align:center;
   font-family:var(--book-font,'EB Garamond',serif);
   font-size:clamp(22px, calc(var(--cw,220px)*.15), 36px);
@@ -229,7 +234,7 @@
   text-shadow:0 1px 3px rgba(0,0,0,.65),0 0 12px rgba(0,0,0,.35);
   color:#f6e27a;z-index:6;
 }
-.lib-book[style*="silver"] .bd-cover-r .title{color:#e8edf1}
+.lib-book[style*="silver"] .bd-cover-l .title{color:#e8edf1}
 
 /* ---------- РАСКРЫТИЕ (в ШИРИНУ): широкие блоки доворачиваются -90° -> 0° ----------
    Контейнер .lib-book НЕ поворачивается (перенос и масштаб только).

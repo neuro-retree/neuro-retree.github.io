@@ -1,11 +1,11 @@
-﻿/* library.js — интерактивная книжная полка «Нейросети для жизни».
+/* library.js — интерактивная книжная полка «Нейросети для жизни».
    Сцена: 5 книг (Статьи, Обучение, Книга, Видео, Об авторе).
    Анимации: shelf -> pulling -> opening -> zooming -> reading -> closing -> returning.
    Звуки WebAudio (без файлов). Лупа 2 режима строго за курсором.
    Контент: статьи (articles.json), обучение (learning), тома (tomes.json), автор, видео-заглушки. */
 (function () {
   "use strict";
-  var BASE = "./site/";
+  var BASE = "https://neuro-retree.github.io/site/";
 var CONFIG = {
  books: [
  /* ВРЕМЕННО скрыты для наладки полки (22.10.2026):
@@ -24,7 +24,7 @@ var CONFIG = {
     ],
     /* ВРЕМЕННО (23.10.2026): замедлено для наблюдения.
        Раскрытие: 2000 + 5000 + 3000 = 10 секунд. Должно совпадать с --lib-anim-* в CSS. */
-    anim: { pull: 2000, open: 5000, zoom: 3000, close: 2000, ret: 1500 }
+    anim: { pull: 2000, open: 5000, zoom: 3000, close: 3000, ret: 2000 }
   };
   var state = "shelf", sel = -1, cur = 0, pages = [], quiet = false;
 
@@ -199,11 +199,12 @@ var CONFIG = {
       });
       var bdPages = cube("bd-pages-block");
       var bdSingle = cube("bd-single-page");
-      var bdCoverL = cube("bd-cover-l");
-      var bdCoverR = cube("bd-cover-r", function (d) {
-        // название — внутри видимой передней грани (иначе перекрывается гранью)
+      // Название — на ПЕРЕДНЕЙ обложке (левая, .bd-cover-l), как в модели:
+      // передняя обложка при раскрытии идёт влево и обращена к зрителю.
+      var bdCoverL = cube("bd-cover-l", function (d) {
         d.querySelector(".face-front").appendChild(el("div", "title", b.title));
       });
+      var bdCoverR = cube("bd-cover-r");
       book.appendChild(bdSpine); book.appendChild(bdPages);
       book.appendChild(bdSingle); book.appendChild(bdCoverL); book.appendChild(bdCoverR);
       book.addEventListener("click", function () { openBook(i); });
