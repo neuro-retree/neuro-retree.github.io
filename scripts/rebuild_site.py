@@ -20,7 +20,7 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-BASE_URL = "./"
+BASE_URL = "https://neuro-retree.github.io/"
 AUTHOR = "Татьяна Зенина"
 SITE_NAME = "Нейросети для жизни"
 
@@ -323,7 +323,7 @@ button:focus-visible,a:focus-visible{outline:3px solid #e5a000;outline-offset:3p
 
 
 def page(title, desc, body, canonical, extra_head="", lib=False, ogtype="website"):
-    assets_lib = ('<link rel="stylesheet" href="assets/library.css?v=20261023d">\n<script src="assets/library.js?v=20261023d"></script>') if lib else ""
+    assets_lib = ('<link rel="stylesheet" href="assets/library.css?v=20261024b">\n<script src="assets/library.js?v=20261024b"></script>') if lib else ""
     return """<!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -717,7 +717,7 @@ document.getElementById('memoGo').addEventListener('click',async()=>{
     if(/^\d+[.)]/.test(s)&&s.length<180)steps.push(s.replace(/^\d+[.)]\s+/,''));
     if(steps.length>=5)break;
   }
-  const out=['ПАМЯТКА: '+ART[slug].title,'','Пять шагов:']+steps.slice(0,5).map((x,i)=>(i+1)+'. '+x)+['','Что сделать сегодня: открыть статью и выполнить первый шаг.','Как проверить результат: следовать инструкциям в статье, сверяться с источниками.','','Полная статья: ./articles/'+slug+'/'];
+  const out=['ПАМЯТКА: '+ART[slug].title,'','Пять шагов:']+steps.slice(0,5).map((x,i)=>(i+1)+'. '+x)+['','Что сделать сегодня: открыть статью и выполнить первый шаг.','Как проверить результат: следовать инструкциям в статье, сверяться с источниками.','','Полная статья: https://neuro-retree.github.io/articles/'+slug+'/'];
   memoOut.style.display='block';memoOut.textContent=out.join('\n');
   memoPrint.style.display='inline-block';
 });

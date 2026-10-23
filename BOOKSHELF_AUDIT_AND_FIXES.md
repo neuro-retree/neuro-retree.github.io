@@ -1,6 +1,6 @@
-﻿# BOOKSHELF_AUDIT_AND_FIXES — отчёт по расширенному ТЗ (21.10.2026)
+# BOOKSHELF_AUDIT_AND_FIXES — отчёт по расширенному ТЗ (21.10.2026)
 
-Адрес: ./site/
+Адрес: https://neuro-retree.github.io/site/
 Репозиторий: https://github.com/neuro-retree/site
 Commit: f7839d8
 Проверено: опубликованная версия после деплоя (Playwright)

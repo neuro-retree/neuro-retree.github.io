@@ -1,4 +1,4 @@
-﻿/* books.js — вьюер «листающейся книги»: тома + статьи.
+/* books.js — вьюер «листающейся книги»: тома + статьи.
    - режим «Тома»: загружает data/tomes.json, листает развороты книги (со звуком);
    - режим «Статьи»: загружает articles/catalog.json, листает обложки статей
      как страницы книги; клик по обложке открывает полный текст статьи;
@@ -129,7 +129,7 @@
 
   function init() {
     if (!document.getElementById("bookSpread")) return;
-    var base = "./site/";
+    var base = "https://neuro-retree.github.io/site/";
     loadJSON(base + "data/tomes.json", function (data) {
       tomes = data.tomes || [];
       loadJSON(base + "articles/catalog.json", function (adata) {

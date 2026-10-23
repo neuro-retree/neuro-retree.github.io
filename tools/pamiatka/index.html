@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="utf-8">
@@ -6,16 +6,16 @@
 <title>Генератор памятки — Нейросети для жизни</title>
 <meta name="description" content="Короткая памятка из любой статьи: пять шагов, что сделать сегодня, как проверить. Печать и отправка близким.">
 <meta name="theme-color" content="#0b5c4f">
-<link rel="canonical" href="./tools/pamiatka/">
+<link rel="canonical" href="https://neuro-retree.github.io/tools/pamiatka/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="Нейросети для жизни">
 <meta property="og:title" content="Генератор памятки — Нейросети для жизни">
 <meta property="og:description" content="Короткая памятка из любой статьи: пять шагов, что сделать сегодня, как проверить. Печать и отправка близким.">
-<meta property="og:url" content="./tools/pamiatka/">
-<meta property="og:image" content="./channel-avatar-neuro-retree.jpg">
+<meta property="og:url" content="https://neuro-retree.github.io/tools/pamiatka/">
+<meta property="og:image" content="https://neuro-retree.github.io/channel-avatar-neuro-retree.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="alternate" type="application/rss+xml" title="Нейросети для жизни — RSS" href="./rss.xml">
+<link rel="alternate" type="application/rss+xml" title="Нейросети для жизни — RSS" href="https://neuro-retree.github.io/rss.xml">
 
 <style>
 *{box-sizing:border-box}
@@ -100,16 +100,16 @@ button:focus-visible,a:focus-visible{outline:3px solid #e5a000;outline-offset:3p
 <header><div class="wrap inline">
   <div class="title">Нейросети для жизни</div>
   <div class="links">
-    <a href="./">Главная</a>
-    <a href="./articles/">Статьи</a>
-    <a href="./tools/">Инструменты</a>
-    <a href="./learning/">Обучение</a>
-    <a href="./slovar/">Словарь</a>
+    <a href="https://neuro-retree.github.io/">Главная</a>
+    <a href="https://neuro-retree.github.io/articles/">Статьи</a>
+    <a href="https://neuro-retree.github.io/tools/">Инструменты</a>
+    <a href="https://neuro-retree.github.io/learning/">Обучение</a>
+    <a href="https://neuro-retree.github.io/slovar/">Словарь</a>
   </div>
 </div></header>
 <main><div class="wrap">
 
-<div class="breadcrumbs"><a href="./">Главная</a> → <a href="./tools/">Инструменты</a> → Генератор памятки</div>
+<div class="breadcrumbs"><a href="https://neuro-retree.github.io/">Главная</a> → <a href="https://neuro-retree.github.io/tools/">Инструменты</a> → Генератор памятки</div>
 <div class="tool-page">
 <h1>Генератор памятки из статьи</h1>
 <p style="color:#5b7080">Выберите статью — ниже появится короткая памятка: пять главных шагов, что сделать сегодня и как проверить результат. Можно распечатать или отправить близким.</p>
@@ -272,7 +272,7 @@ document.getElementById('memoGo').addEventListener('click',async()=>{
     if(/^\d+[.)]/.test(s)&&s.length<180)steps.push(s.replace(/^\d+[.)]\s+/,''));
     if(steps.length>=5)break;
   }
-  const out=['ПАМЯТКА: '+ART[slug].title,'','Пять шагов:']+steps.slice(0,5).map((x,i)=>(i+1)+'. '+x)+['','Что сделать сегодня: открыть статью и выполнить первый шаг.','Как проверить результат: следовать инструкциям в статье, сверяться с источниками.','','Полная статья: ./articles/'+slug+'/'];
+  const out=['ПАМЯТКА: '+ART[slug].title,'','Пять шагов:']+steps.slice(0,5).map((x,i)=>(i+1)+'. '+x)+['','Что сделать сегодня: открыть статью и выполнить первый шаг.','Как проверить результат: следовать инструкциям в статье, сверяться с источниками.','','Полная статья: https://neuro-retree.github.io/articles/'+slug+'/'];
   memoOut.style.display='block';memoOut.textContent=out.join('
 ');
   memoPrint.style.display='inline-block';
@@ -281,11 +281,11 @@ memoPrint.addEventListener('click',()=>{window.print();});
 </script>
 
 </div></main>
-<footer><div class="wrap footer">© 2026 Нейросети для жизни · Татьяна Зенина, Астрахань · <a href="mailto:neuro-retree@ya.ru?subject=Ошибка на сайте">Нашли ошибку? Напишите нам</a> · <a href="./rss.xml">RSS</a></div></footer>
-<script src="./a11y-toggle.js?v=20261022" defer></script>
-<link rel="stylesheet" href="./assets/book.css">
-<script src="./assets/book.js?v=20261022" defer></script>
-<script src="./assets/magnifier.js?v=20261022" defer></script>
+<footer><div class="wrap footer">© 2026 Нейросети для жизни · Татьяна Зенина, Астрахань · <a href="mailto:neuro-retree@ya.ru?subject=Ошибка на сайте">Нашли ошибку? Напишите нам</a> · <a href="https://neuro-retree.github.io/rss.xml">RSS</a></div></footer>
+<script src="https://neuro-retree.github.io/a11y-toggle.js?v=20261022" defer></script>
+<link rel="stylesheet" href="https://neuro-retree.github.io/assets/book.css">
+<script src="https://neuro-retree.github.io/assets/book.js?v=20261022" defer></script>
+<script src="https://neuro-retree.github.io/assets/magnifier.js?v=20261022" defer></script>
 
 </body>
 </html>

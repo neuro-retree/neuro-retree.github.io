@@ -1,956 +1,955 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Нейросети для жизни — Татьяна Зенина</title>
-    <link>./</link>
+    <link>https://neuro-retree.github.io/</link>
     <description>Нейросети, цифровая безопасность и полезные интернет-сервисы простыми словами для людей старшего возраста.</description>
     <language>ru</language>
     <lastBuildDate>2026-10-20T00:00:00+03:00</lastBuildDate>
-    <atom:link href="./rss.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://neuro-retree.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Двухфакторная защита за 5 минут: второй замок для пенсии и Госуслуг</title>
-      <link>./articles/article_2fa_zashchita/</link>
-      <guid isPermaLink="true">./articles/article_2fa_zashchita/</guid>
+      <link>https://neuro-retree.github.io/articles/article_2fa_zashchita/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_2fa_zashchita/</guid>
       <description>Как включить подтверждение входа по коду и зачем это нужно для ваших денег и документов.</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Поддельный голос внука: как распознать дипфейк и не отдать деньги</title>
-      <link>./articles/article_33_dipfeyki/</link>
-      <guid isPermaLink="true">./articles/article_33_dipfeyki/</guid>
+      <link>https://neuro-retree.github.io/articles/article_33_dipfeyki/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_33_dipfeyki/</guid>
       <description>Как проверить подозрительный звонок и защитить близких от мошенников с новыми технологиями.</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Госуслуги: как узнать, какие выплаты и льготы вам положены</title>
-      <link>./articles/article_gosuslugi_vyplaty/</link>
-      <guid isPermaLink="true">./articles/article_gosuslugi_vyplaty/</guid>
+      <link>https://neuro-retree.github.io/articles/article_gosuslugi_vyplaty/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_gosuslugi_vyplaty/</guid>
       <description>Какие сведения доступны на Госуслугах и в ЕГИССО и что делать дальше.</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Списали деньги за бесплатное приложение — как отключить подписку и вернуть своё</title>
-      <link>./articles/article_spisali_za_prilozhenie/</link>
-      <guid isPermaLink="true">./articles/article_spisali_za_prilozhenie/</guid>
+      <link>https://neuro-retree.github.io/articles/article_spisali_za_prilozhenie/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_spisali_za_prilozhenie/</guid>
       <description>Пошагово: где найти подписку, как её отключить и попробовать вернуть деньги.</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>152-ФЗ: ваши данные, ваши права — просто о главном</title>
-      <link>./articles/article_152fz_dannye/</link>
-      <guid isPermaLink="true">./articles/article_152fz_dannye/</guid>
+      <link>https://neuro-retree.github.io/articles/article_152fz_dannye/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_152fz_dannye/</guid>
       <description>Что компаниям можно делать с вашими данными и как потребовать их удалить.</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Статины: 6 мифов, о которых важно знать</title>
-      <link>./articles/article_statiny_6_mifov/</link>
-      <guid isPermaLink="true">./articles/article_statiny_6_mifov/</guid>
+      <link>https://neuro-retree.github.io/articles/article_statiny_6_mifov/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_statiny_6_mifov/</guid>
       <description>Разбираем самые распространённые страхи про препараты, снижающие холестерин.</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>БАДы: правда и риски, чтобы не навредить себе</title>
-      <link>./articles/article_bady_riski/</link>
-      <guid isPermaLink="true">./articles/article_bady_riski/</guid>
+      <link>https://neuro-retree.github.io/articles/article_bady_riski/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_bady_riski/</guid>
       <description>Как читать состав, где искать проверенную информацию и почему БАДы не заменяют лекарства.</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Давление после 60: какая норма и как контролировать</title>
-      <link>./articles/article_davlenie_posle_60/</link>
-      <guid isPermaLink="true">./articles/article_davlenie_posle_60/</guid>
+      <link>https://neuro-retree.github.io/articles/article_davlenie_posle_60/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_davlenie_posle_60/</guid>
       <description>Понятно о цифрах тонометра, дневнике измерений и визите к врачу.</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Чек-лист «10 вечеров»: бесплатный старт в нейросетях</title>
-      <link>./articles/article_20_cheklist_10_vecherov/</link>
-      <guid isPermaLink="true">./articles/article_20_cheklist_10_vecherov/</guid>
+      <link>https://neuro-retree.github.io/articles/article_20_cheklist_10_vecherov/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_20_cheklist_10_vecherov/</guid>
       <description>Простые первые шаги: как за десять вечеров подружиться с нейросетью и не испугаться.</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Что нужно знать о «Как открыть нейросеть и не сломать: первые 15 минут спокойного знакомства»</title>
-      <link>./articles/article_01_kak_otkryt_i_ne_slomat_kanon/</link>
-      <guid isPermaLink="true">./articles/article_01_kak_otkryt_i_ne_slomat_kanon/</guid>
+      <link>https://neuro-retree.github.io/articles/article_01_kak_otkryt_i_ne_slomat_kanon/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_01_kak_otkryt_i_ne_slomat_kanon/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Что нужно знать о «Как открыть нейросеть и не сломать: первые 15 минут спокойного знакомства»</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Что нужно знать о «Промт — это не страшно: формула идеального запроса из пяти кирпичиков»</title>
-      <link>./articles/article_02_promt_ne_strashno_kanon/</link>
-      <guid isPermaLink="true">./articles/article_02_promt_ne_strashno_kanon/</guid>
+      <link>https://neuro-retree.github.io/articles/article_02_promt_ne_strashno_kanon/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_02_promt_ne_strashno_kanon/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Что нужно знать о «Промт — это не страшно: формула идеального запроса из пяти кирпичиков»</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Альцгеймер: 10 признаков и когда пора к врачу</title>
-      <link>./articles/article_10_priznakov_alzgejmer/</link>
-      <guid isPermaLink="true">./articles/article_10_priznakov_alzgejmer/</guid>
+      <link>https://neuro-retree.github.io/articles/article_10_priznakov_alzgejmer/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_10_priznakov_alzgejmer/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Альцгеймер: 10 признаков и когда пора к врачу</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Что нужно знать о «Нейросеть в быту: 10 дел за минуту»</title>
-      <link>./articles/article_10_scenariev_byta/</link>
-      <guid isPermaLink="true">./articles/article_10_scenariev_byta/</guid>
+      <link>https://neuro-retree.github.io/articles/article_10_scenariev_byta/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_10_scenariev_byta/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Что нужно знать о «Нейросеть в быту: 10 дел за минуту»</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Можно ли заработать с нейросетями на пенсии?</title>
-      <link>./articles/article_11_zarabotok_na_pensii/</link>
-      <guid isPermaLink="true">./articles/article_11_zarabotok_na_pensii/</guid>
+      <link>https://neuro-retree.github.io/articles/article_11_zarabotok_na_pensii/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_11_zarabotok_na_pensii/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Можно ли заработать с нейросетями на пенсии?</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Самозанятость: «Мой налог» за 5 минут и без страха</title>
-      <link>./articles/article_14_samozanyatost/</link>
-      <guid isPermaLink="true">./articles/article_14_samozanyatost/</guid>
+      <link>https://neuro-retree.github.io/articles/article_14_samozanyatost/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_14_samozanyatost/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Самозанятость: «Мой налог» за 5 минут и без страха</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>15 готовых промтов для первого заработка</title>
-      <link>./articles/article_15_promty_dlya_zarabotka/</link>
-      <guid isPermaLink="true">./articles/article_15_promty_dlya_zarabotka/</guid>
+      <link>https://neuro-retree.github.io/articles/article_15_promty_dlya_zarabotka/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_15_promty_dlya_zarabotka/</guid>
       <description>Статья на сайте «Нейросети для жизни»: 15 готовых промтов для первого заработка</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Заработок на нейросетях: 4 пути для людей 50+</title>
-      <link>./articles/article_4_puti_zarabotka/</link>
-      <guid isPermaLink="true">./articles/article_4_puti_zarabotka/</guid>
+      <link>https://neuro-retree.github.io/articles/article_4_puti_zarabotka/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_4_puti_zarabotka/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Заработок на нейросетях: 4 пути для людей 50+</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>5 уровней автоматизации: от заметки до конвейера</title>
-      <link>./articles/article_5_urovnej_avtomatizacii/</link>
-      <guid isPermaLink="true">./articles/article_5_urovnej_avtomatizacii/</guid>
+      <link>https://neuro-retree.github.io/articles/article_5_urovnej_avtomatizacii/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_5_urovnej_avtomatizacii/</guid>
       <description>Статья на сайте «Нейросети для жизни»: 5 уровней автоматизации: от заметки до конвейера</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Агенты — нейросети, которые работают сами</title>
-      <link>./articles/article_agenty_rabotayut_sami/</link>
-      <guid isPermaLink="true">./articles/article_agenty_rabotayut_sami/</guid>
+      <link>https://neuro-retree.github.io/articles/article_agenty_rabotayut_sami/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_agenty_rabotayut_sami/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Агенты — нейросети, которые работают сами</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>AI-консультант для соседей: как я помогаю и зарабатываю</title>
-      <link>./articles/article_ai_konsultant_sosedi/</link>
-      <guid isPermaLink="true">./articles/article_ai_konsultant_sosedi/</guid>
+      <link>https://neuro-retree.github.io/articles/article_ai_konsultant_sosedi/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_ai_konsultant_sosedi/</guid>
       <description>Статья на сайте «Нейросети для жизни»: AI-консультант для соседей: как я помогаю и зарабатываю</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Арт-терапия после 60: творчество продлевает жизнь</title>
-      <link>./articles/article_art_terapiya_60/</link>
-      <guid isPermaLink="true">./articles/article_art_terapiya_60/</guid>
+      <link>https://neuro-retree.github.io/articles/article_art_terapiya_60/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_art_terapiya_60/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Арт-терапия после 60: творчество продлевает жизнь</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Аудиокнига из рукописи: путь для тех, кому трудно читать</title>
-      <link>./articles/article_audiokniga_iz_rukopisi/</link>
-      <guid isPermaLink="true">./articles/article_audiokniga_iz_rukopisi/</guid>
+      <link>https://neuro-retree.github.io/articles/article_audiokniga_iz_rukopisi/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_audiokniga_iz_rukopisi/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Аудиокнига из рукописи: путь для тех, кому трудно читать</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Как сделать аватарку нейросетью: 6 сервисов</title>
-      <link>./articles/article_avatarka_nejroset/</link>
-      <guid isPermaLink="true">./articles/article_avatarka_nejroset/</guid>
+      <link>https://neuro-retree.github.io/articles/article_avatarka_nejroset/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_avatarka_nejroset/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Как сделать аватарку нейросетью: 6 сервисов</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Бабушка и кот: общий язык с нейросетью (моя история)</title>
-      <link>./articles/article_babushka_i_kot/</link>
-      <guid isPermaLink="true">./articles/article_babushka_i_kot/</guid>
+      <link>https://neuro-retree.github.io/articles/article_babushka_i_kot/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_babushka_i_kot/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Бабушка и кот: общий язык с нейросетью (моя история)</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>ИИ-помощник блогера 60+: 7 дел за 15 минут</title>
-      <link>./articles/article_bloger_60_ii/</link>
-      <guid isPermaLink="true">./articles/article_bloger_60_ii/</guid>
+      <link>https://neuro-retree.github.io/articles/article_bloger_60_ii/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_bloger_60_ii/</guid>
       <description>Статья на сайте «Нейросети для жизни»: ИИ-помощник блогера 60+: 7 дел за 15 минут</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Что ждать пенсионерам от ИИ через 5 лет</title>
-      <link>./articles/article_budushchee_ii/</link>
-      <guid isPermaLink="true">./articles/article_budushchee_ii/</guid>
+      <link>https://neuro-retree.github.io/articles/article_budushchee_ii/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_budushchee_ii/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Что ждать пенсионерам от ИИ через 5 лет</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Цена: сколько брать за консультацию и как её повышать</title>
-      <link>./articles/article_cena_konsultacii/</link>
-      <guid isPermaLink="true">./articles/article_cena_konsultacii/</guid>
+      <link>https://neuro-retree.github.io/articles/article_cena_konsultacii/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_cena_konsultacii/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Цена: сколько брать за консультацию и как её повышать</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Чтение вслух: 15 минут в день для ясного ума</title>
-      <link>./articles/article_chtenie_vsluh/</link>
-      <guid isPermaLink="true">./articles/article_chtenie_vsluh/</guid>
+      <link>https://neuro-retree.github.io/articles/article_chtenie_vsluh/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_chtenie_vsluh/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Чтение вслух: 15 минут в день для ясного ума</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Что такое промт? Объясняю простыми словами</title>
-      <link>./articles/article_chto_takoe_promt/</link>
-      <guid isPermaLink="true">./articles/article_chto_takoe_promt/</guid>
+      <link>https://neuro-retree.github.io/articles/article_chto_takoe_promt/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_chto_takoe_promt/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Что такое промт? Объясняю простыми словами</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Деменция: 14 факторов риска, и 10 из них — в ваших руках</title>
-      <link>./articles/article_demenciya_faktory/</link>
-      <guid isPermaLink="true">./articles/article_demenciya_faktory/</guid>
+      <link>https://neuro-retree.github.io/articles/article_demenciya_faktory/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_demenciya_faktory/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Деменция: 14 факторов риска, и 10 из них — в ваших руках</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Заработок в Дзене в 2026: честный разбор стратегий</title>
-      <link>./articles/article_dzen_2026_strategii/</link>
-      <guid isPermaLink="true">./articles/article_dzen_2026_strategii/</guid>
+      <link>https://neuro-retree.github.io/articles/article_dzen_2026_strategii/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_dzen_2026_strategii/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Заработок в Дзене в 2026: честный разбор стратегий</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Как нейросети снижают расходы: выбираем модель</title>
-      <link>./articles/article_ekonomiya_modeli/</link>
-      <guid isPermaLink="true">./articles/article_ekonomiya_modeli/</guid>
+      <link>https://neuro-retree.github.io/articles/article_ekonomiya_modeli/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_ekonomiya_modeli/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Как нейросети снижают расходы: выбираем модель</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Фишинг: письмо от банка — как распознать обман</title>
-      <link>./articles/article_fishing_kak_raspoznat/</link>
-      <guid isPermaLink="true">./articles/article_fishing_kak_raspoznat/</guid>
+      <link>https://neuro-retree.github.io/articles/article_fishing_kak_raspoznat/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_fishing_kak_raspoznat/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Фишинг: письмо от банка — как распознать обман</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Галлюцинации нейросети: почему «врёт» и как проверить</title>
-      <link>./articles/article_gallyucinacii/</link>
-      <guid isPermaLink="true">./articles/article_gallyucinacii/</guid>
+      <link>https://neuro-retree.github.io/articles/article_gallyucinacii/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_gallyucinacii/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Галлюцинации нейросети: почему «врёт» и как проверить</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Нейросеть «придумала» судебный акт — оштрафовали</title>
-      <link>./articles/article_gallyucinacii_u_suda/</link>
-      <guid isPermaLink="true">./articles/article_gallyucinacii_u_suda/</guid>
+      <link>https://neuro-retree.github.io/articles/article_gallyucinacii_u_suda/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_gallyucinacii_u_suda/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Нейросеть «придумала» судебный акт — оштрафовали</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Гепатопротекторы: правда о «защите печени»</title>
-      <link>./articles/article_gepatoprotektory/</link>
-      <guid isPermaLink="true">./articles/article_gepatoprotektory/</guid>
+      <link>https://neuro-retree.github.io/articles/article_gepatoprotektory/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_gepatoprotektory/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Гепатопротекторы: правда о «защите печени»</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Гиперперсонализация: как нейросеть «читает мысли»</title>
-      <link>./articles/article_giperpersonalizaciya/</link>
-      <guid isPermaLink="true">./articles/article_giperpersonalizaciya/</guid>
+      <link>https://neuro-retree.github.io/articles/article_giperpersonalizaciya/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_giperpersonalizaciya/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Гиперперсонализация: как нейросеть «читает мысли»</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Глицин: правда из лаборатории</title>
-      <link>./articles/article_glitsin_pravda/</link>
-      <guid isPermaLink="true">./articles/article_glitsin_pravda/</guid>
+      <link>https://neuro-retree.github.io/articles/article_glitsin_pravda/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_glitsin_pravda/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Глицин: правда из лаборатории</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Заработок на хобби после 50: деньги, радость и здоровье</title>
-      <link>./articles/article_hobbi_dohod/</link>
-      <guid isPermaLink="true">./articles/article_hobbi_dohod/</guid>
+      <link>https://neuro-retree.github.io/articles/article_hobbi_dohod/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_hobbi_dohod/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Заработок на хобби после 50: деньги, радость и здоровье</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>ИИ-агент: умный бот, который работает за вас</title>
-      <link>./articles/article_ii_agent/</link>
-      <guid isPermaLink="true">./articles/article_ii_agent/</guid>
+      <link>https://neuro-retree.github.io/articles/article_ii_agent/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_ii_agent/</guid>
       <description>Статья на сайте «Нейросети для жизни»: ИИ-агент: умный бот, который работает за вас</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Ваш цифровой секретарь. Часть 1: где живёт помощник и как дать ему первое задание</title>
-      <link>./articles/article_ii_agent_chast1/</link>
-      <guid isPermaLink="true">./articles/article_ii_agent_chast1/</guid>
+      <link>https://neuro-retree.github.io/articles/article_ii_agent_chast1/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_ii_agent_chast1/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Ваш цифровой секретарь. Часть 1: где живёт помощник и как дать ему первое задание</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Ваш цифровой секретарь. Часть 2: инструменты, безопасность и первые шаги</title>
-      <link>./articles/article_ii_agent_chast2/</link>
-      <guid isPermaLink="true">./articles/article_ii_agent_chast2/</guid>
+      <link>https://neuro-retree.github.io/articles/article_ii_agent_chast2/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_ii_agent_chast2/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Ваш цифровой секретарь. Часть 2: инструменты, безопасность и первые шаги</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>«Пассивный доход» на ИИ-агенте: разбор мифа</title>
-      <link>./articles/article_ii_agent_passiv/</link>
-      <guid isPermaLink="true">./articles/article_ii_agent_passiv/</guid>
+      <link>https://neuro-retree.github.io/articles/article_ii_agent_passiv/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_ii_agent_passiv/</guid>
       <description>Статья на сайте «Нейросети для жизни»: «Пассивный доход» на ИИ-агенте: разбор мифа</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Нейросети для жизни: как перестать бояться «умных машин» и начать ими пользоваться</title>
-      <link>./articles/article_ii_dlya_zhizni/</link>
-      <guid isPermaLink="true">./articles/article_ii_dlya_zhizni/</guid>
+      <link>https://neuro-retree.github.io/articles/article_ii_dlya_zhizni/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_ii_dlya_zhizni/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Нейросети для жизни: как перестать бояться «умных машин» и начать ими пользоваться</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Нейросеть не заменит врача — но может помочь вам обоим</title>
-      <link>./articles/article_ii_ne_zamenit_vracha/</link>
-      <guid isPermaLink="true">./articles/article_ii_ne_zamenit_vracha/</guid>
+      <link>https://neuro-retree.github.io/articles/article_ii_ne_zamenit_vracha/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_ii_ne_zamenit_vracha/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Нейросеть не заменит врача — но может помочь вам обоим</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Нейросеть как репетитор русского языка</title>
-      <link>./articles/article_ii_repetitor/</link>
-      <guid isPermaLink="true">./articles/article_ii_repetitor/</guid>
+      <link>https://neuro-retree.github.io/articles/article_ii_repetitor/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_ii_repetitor/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Нейросеть как репетитор русского языка</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Имущество в браке: что ваше, а что делится</title>
-      <link>./articles/article_imuschestvo_v_brake/</link>
-      <guid isPermaLink="true">./articles/article_imuschestvo_v_brake/</guid>
+      <link>https://neuro-retree.github.io/articles/article_imuschestvo_v_brake/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_imuschestvo_v_brake/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Имущество в браке: что ваше, а что делится</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Ипотека для пенсионеров: правила и камни</title>
-      <link>./articles/article_ipoteka_pensioneram/</link>
-      <guid isPermaLink="true">./articles/article_ipoteka_pensioneram/</guid>
+      <link>https://neuro-retree.github.io/articles/article_ipoteka_pensioneram/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_ipoteka_pensioneram/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Ипотека для пенсионеров: правила и камни</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Статьи о БАДах: 3 маркера рекламы под видом науки</title>
-      <link>./articles/article_kak_chitat_o_badah/</link>
-      <guid isPermaLink="true">./articles/article_kak_chitat_o_badah/</guid>
+      <link>https://neuro-retree.github.io/articles/article_kak_chitat_o_badah/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_kak_chitat_o_badah/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Статьи о БАДах: 3 маркера рекламы под видом науки</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Как начать и не бросить: руководство по нейросетям</title>
-      <link>./articles/article_kak_nachat_i_ne_brosit/</link>
-      <guid isPermaLink="true">./articles/article_kak_nachat_i_ne_brosit/</guid>
+      <link>https://neuro-retree.github.io/articles/article_kak_nachat_i_ne_brosit/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_kak_nachat_i_ne_brosit/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Как начать и не бросить: руководство по нейросетям</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Календарь публикаций: контент на месяц без стресса</title>
-      <link>./articles/article_kalendar_publikacij/</link>
-      <guid isPermaLink="true">./articles/article_kalendar_publikacij/</guid>
+      <link>https://neuro-retree.github.io/articles/article_kalendar_publikacij/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_kalendar_publikacij/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Календарь публикаций: контент на месяц без стресса</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Кишечник и почки: неожиданная связь</title>
-      <link>./articles/article_kishechnik_pochki/</link>
-      <guid isPermaLink="true">./articles/article_kishechnik_pochki/</guid>
+      <link>https://neuro-retree.github.io/articles/article_kishechnik_pochki/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_kishechnik_pochki/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Кишечник и почки: неожиданная связь</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Книга с нейросетью по-честному: 7 правил</title>
-      <link>./articles/article_kniga_chestnye_pravila/</link>
-      <guid isPermaLink="true">./articles/article_kniga_chestnye_pravila/</guid>
+      <link>https://neuro-retree.github.io/articles/article_kniga_chestnye_pravila/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_kniga_chestnye_pravila/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Книга с нейросетью по-честному: 7 правил</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Книга своими словами: нейросеть пишет, вы — душа</title>
-      <link>./articles/article_kniga_svoimi_slovami/</link>
-      <guid isPermaLink="true">./articles/article_kniga_svoimi_slovami/</guid>
+      <link>https://neuro-retree.github.io/articles/article_kniga_svoimi_slovami/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_kniga_svoimi_slovami/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Книга своими словами: нейросеть пишет, вы — душа</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Комиссии площадок 2026: сколько реально останется у вас</title>
-      <link>./articles/article_komissii_ploshchadok/</link>
-      <guid isPermaLink="true">./articles/article_komissii_ploshchadok/</guid>
+      <link>https://neuro-retree.github.io/articles/article_komissii_ploshchadok/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_komissii_ploshchadok/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Комиссии площадок 2026: сколько реально останется у вас</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Короткие тексты для соцсетей: что заказывают чаще всего</title>
-      <link>./articles/article_korotkie_teksty_socseti/</link>
-      <guid isPermaLink="true">./articles/article_korotkie_teksty_socseti/</guid>
+      <link>https://neuro-retree.github.io/articles/article_korotkie_teksty_socseti/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_korotkie_teksty_socseti/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Короткие тексты для соцсетей: что заказывают чаще всего</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Кредит под залог квартиры: 5 красных флагов</title>
-      <link>./articles/article_kredit_pod_zalog_risk/</link>
-      <guid isPermaLink="true">./articles/article_kredit_pod_zalog_risk/</guid>
+      <link>https://neuro-retree.github.io/articles/article_kredit_pod_zalog_risk/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_kredit_pod_zalog_risk/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Кредит под залог квартиры: 5 красных флагов</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Куда записать пароль: памятка для начинающих</title>
-      <link>./articles/article_kuda_zapisat_parol/</link>
-      <guid isPermaLink="true">./articles/article_kuda_zapisat_parol/</guid>
+      <link>https://neuro-retree.github.io/articles/article_kuda_zapisat_parol/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_kuda_zapisat_parol/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Куда записать пароль: памятка для начинающих</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Курсы компьютерной грамотности для пенсионеров бесплатно</title>
-      <link>./articles/article_kursy_komp_gramotnosti/</link>
-      <guid isPermaLink="true">./articles/article_kursy_komp_gramotnosti/</guid>
+      <link>https://neuro-retree.github.io/articles/article_kursy_komp_gramotnosti/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_kursy_komp_gramotnosti/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Курсы компьютерной грамотности для пенсионеров бесплатно</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Как выбрать курс по нейросетям и не переплатить</title>
-      <link>./articles/article_kursy_po_ii/</link>
-      <guid isPermaLink="true">./articles/article_kursy_po_ii/</guid>
+      <link>https://neuro-retree.github.io/articles/article_kursy_po_ii/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_kursy_po_ii/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Как выбрать курс по нейросетям и не переплатить</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Первый заказ на Kwork: инструкция для 50+</title>
-      <link>./articles/article_kwork_pervyj_zakaz/</link>
-      <guid isPermaLink="true">./articles/article_kwork_pervyj_zakaz/</guid>
+      <link>https://neuro-retree.github.io/articles/article_kwork_pervyj_zakaz/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_kwork_pervyj_zakaz/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Первый заказ на Kwork: инструкция для 50+</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Логотипы и аватарки с нейросетью: услуга</title>
-      <link>./articles/article_logotipy_s_nejrosetyu/</link>
-      <guid isPermaLink="true">./articles/article_logotipy_s_nejrosetyu/</guid>
+      <link>https://neuro-retree.github.io/articles/article_logotipy_s_nejrosetyu/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_logotipy_s_nejrosetyu/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Логотипы и аватарки с нейросетью: услуга</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Локальные нейросети: когда интернет не нужен</title>
-      <link>./articles/article_lokalnye_nejroseti/</link>
-      <guid isPermaLink="true">./articles/article_lokalnye_nejroseti/</guid>
+      <link>https://neuro-retree.github.io/articles/article_lokalnye_nejroseti/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_lokalnye_nejroseti/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Локальные нейросети: когда интернет не нужен</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Маркировка рекламы: памятка про erid и ОРД</title>
-      <link>./articles/article_markirovka_reklamy/</link>
-      <guid isPermaLink="true">./articles/article_markirovka_reklamy/</guid>
+      <link>https://neuro-retree.github.io/articles/article_markirovka_reklamy/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_markirovka_reklamy/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Маркировка рекламы: памятка про erid и ОРД</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Маркировка рекламы для блогера: просто о сложном</title>
-      <link>./articles/article_markirovka_reklamy_bloger/</link>
-      <guid isPermaLink="true">./articles/article_markirovka_reklamy_bloger/</guid>
+      <link>https://neuro-retree.github.io/articles/article_markirovka_reklamy_bloger/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_markirovka_reklamy_bloger/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Маркировка рекламы для блогера: просто о сложном</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Медицинские и юридические промты: что можно, что нельзя</title>
-      <link>./articles/article_med_yur_promty/</link>
-      <guid isPermaLink="true">./articles/article_med_yur_promty/</guid>
+      <link>https://neuro-retree.github.io/articles/article_med_yur_promty/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_med_yur_promty/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Медицинские и юридические промты: что можно, что нельзя</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Как простые занятия с руками помогают мозгу отдохнуть и успокоиться</title>
-      <link>./articles/article_melkaia_motorika/</link>
-      <guid isPermaLink="true">./articles/article_melkaia_motorika/</guid>
+      <link>https://neuro-retree.github.io/articles/article_melkaia_motorika/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_melkaia_motorika/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Как простые занятия с руками помогают мозгу отдохнуть и успокоиться</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Семейные мемуары с нейросетью: напишем, пока живы</title>
-      <link>./articles/article_memuary_s_nejrosetyu/</link>
-      <guid isPermaLink="true">./articles/article_memuary_s_nejrosetyu/</guid>
+      <link>https://neuro-retree.github.io/articles/article_memuary_s_nejrosetyu/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_memuary_s_nejrosetyu/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Семейные мемуары с нейросетью: напишем, пока живы</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Метеочувствительность: как пережить перепады погоды</title>
-      <link>./articles/article_meteochuvstvitelnost/</link>
-      <guid isPermaLink="true">./articles/article_meteochuvstvitelnost/</guid>
+      <link>https://neuro-retree.github.io/articles/article_meteochuvstvitelnost/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_meteochuvstvitelnost/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Метеочувствительность: как пережить перепады погоды</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Мои 4 книги: что внутри и кому они помогут</title>
-      <link>./articles/article_moi_4_knigi/</link>
-      <guid isPermaLink="true">./articles/article_moi_4_knigi/</guid>
+      <link>https://neuro-retree.github.io/articles/article_moi_4_knigi/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_moi_4_knigi/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Мои 4 книги: что внутри и кому они помогут</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Накопительная пенсия: как посчитать свои накопления</title>
-      <link>./articles/article_nakopitelnaya_pensiya/</link>
-      <guid isPermaLink="true">./articles/article_nakopitelnaya_pensiya/</guid>
+      <link>https://neuro-retree.github.io/articles/article_nakopitelnaya_pensiya/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_nakopitelnaya_pensiya/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Накопительная пенсия: как посчитать свои накопления</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Накопительная пенсия 2026: как получить сразу</title>
-      <link>./articles/article_nakopitelnaya_pensiya_2026/</link>
-      <guid isPermaLink="true">./articles/article_nakopitelnaya_pensiya_2026/</guid>
+      <link>https://neuro-retree.github.io/articles/article_nakopitelnaya_pensiya_2026/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_nakopitelnaya_pensiya_2026/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Накопительная пенсия 2026: как получить сразу</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Накопительная пенсия: деньги, доступные прямо сейчас</title>
-      <link>./articles/article_nakopitelnaya_pensiya_vyplata/</link>
-      <guid isPermaLink="true">./articles/article_nakopitelnaya_pensiya_vyplata/</guid>
+      <link>https://neuro-retree.github.io/articles/article_nakopitelnaya_pensiya_vyplata/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_nakopitelnaya_pensiya_vyplata/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Накопительная пенсия: деньги, доступные прямо сейчас</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Налоги автора-блогера: НПД, донаты, реклама просто</title>
-      <link>./articles/article_nalogi_avtora/</link>
-      <guid isPermaLink="true">./articles/article_nalogi_avtora/</guid>
+      <link>https://neuro-retree.github.io/articles/article_nalogi_avtora/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_nalogi_avtora/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Налоги автора-блогера: НПД, донаты, реклама просто</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Если блог приносит деньги: налоги для автора в 2026</title>
-      <link>./articles/article_nalogi_blogera_2026/</link>
-      <guid isPermaLink="true">./articles/article_nalogi_blogera_2026/</guid>
+      <link>https://neuro-retree.github.io/articles/article_nalogi_blogera_2026/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_nalogi_blogera_2026/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Если блог приносит деньги: налоги для автора в 2026</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Налоговый вычет за обучение: до 19 500 рублей</title>
-      <link>./articles/article_nalogovyj_vychet_obuchenie/</link>
-      <guid isPermaLink="true">./articles/article_nalogovyj_vychet_obuchenie/</guid>
+      <link>https://neuro-retree.github.io/articles/article_nalogovyj_vychet_obuchenie/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_nalogovyj_vychet_obuchenie/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Налоговый вычет за обучение: до 19 500 рублей</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Налоговый вычет за обучение: верните до 14 300 ₽</title>
-      <link>./articles/article_nalogovyj_vychet_obuchenie_2026/</link>
-      <guid isPermaLink="true">./articles/article_nalogovyj_vychet_obuchenie_2026/</guid>
+      <link>https://neuro-retree.github.io/articles/article_nalogovyj_vychet_obuchenie_2026/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_nalogovyj_vychet_obuchenie_2026/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Налоговый вычет за обучение: верните до 14 300 ₽</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Нейросеть-художник: картины по описанию без навыков</title>
-      <link>./articles/article_nejroset_hudozhnik/</link>
-      <guid isPermaLink="true">./articles/article_nejroset_hudozhnik/</guid>
+      <link>https://neuro-retree.github.io/articles/article_nejroset_hudozhnik/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_nejroset_hudozhnik/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Нейросеть-художник: картины по описанию без навыков</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Нейросеть-собеседник: как не чувствовать себя одиноко</title>
-      <link>./articles/article_nejroset_sobesednik/</link>
-      <guid isPermaLink="true">./articles/article_nejroset_sobesednik/</guid>
+      <link>https://neuro-retree.github.io/articles/article_nejroset_sobesednik/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_nejroset_sobesednik/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Нейросеть-собеседник: как не чувствовать себя одиноко</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Где бесплатно выучиться нейросетям после 55</title>
-      <link>./articles/article_obuchenie_55/</link>
-      <guid isPermaLink="true">./articles/article_obuchenie_55/</guid>
+      <link>https://neuro-retree.github.io/articles/article_obuchenie_55/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_obuchenie_55/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Где бесплатно выучиться нейросетям после 55</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Как объяснить соседке, что такое нейросеть</title>
-      <link>./articles/article_obyasni_sosedke/</link>
-      <guid isPermaLink="true">./articles/article_obyasni_sosedke/</guid>
+      <link>https://neuro-retree.github.io/articles/article_obyasni_sosedke/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_obyasni_sosedke/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Как объяснить соседке, что такое нейросеть</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Ошибки первых 90 дней в заработке с нейросетями</title>
-      <link>./articles/article_oshibki_90_dnej/</link>
-      <guid isPermaLink="true">./articles/article_oshibki_90_dnej/</guid>
+      <link>https://neuro-retree.github.io/articles/article_oshibki_90_dnej/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_oshibki_90_dnej/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Ошибки первых 90 дней в заработке с нейросетями</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Открытки на заказ: заработок без текстов</title>
-      <link>./articles/article_otkrytki_na_zakaz/</link>
-      <guid isPermaLink="true">./articles/article_otkrytki_na_zakaz/</guid>
+      <link>https://neuro-retree.github.io/articles/article_otkrytki_na_zakaz/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_otkrytki_na_zakaz/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Открытки на заказ: заработок без текстов</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Открытый урок: первый запрос вместе с вами</title>
-      <link>./articles/article_otkrytyj_urok/</link>
-      <guid isPermaLink="true">./articles/article_otkrytyj_urok/</guid>
+      <link>https://neuro-retree.github.io/articles/article_otkrytyj_urok/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_otkrytyj_urok/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Открытый урок: первый запрос вместе с вами</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Отзывы как реклама: как просить и показывать</title>
-      <link>./articles/article_otzyvy_kak_reklama/</link>
-      <guid isPermaLink="true">./articles/article_otzyvy_kak_reklama/</guid>
+      <link>https://neuro-retree.github.io/articles/article_otzyvy_kak_reklama/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_otzyvy_kak_reklama/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Отзывы как реклама: как просить и показывать</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Озвучка: аудиопоздравление голосом диктора за 10 минут</title>
-      <link>./articles/article_ozvuchka_pozdravlenie/</link>
-      <guid isPermaLink="true">./articles/article_ozvuchka_pozdravlenie/</guid>
+      <link>https://neuro-retree.github.io/articles/article_ozvuchka_pozdravlenie/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_ozvuchka_pozdravlenie/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Озвучка: аудиопоздравление голосом диктора за 10 минут</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Память после 60: 9 простых упражнений, которые работают</title>
-      <link>./articles/article_pamyat_9_uprazhnenij/</link>
-      <guid isPermaLink="true">./articles/article_pamyat_9_uprazhnenij/</guid>
+      <link>https://neuro-retree.github.io/articles/article_pamyat_9_uprazhnenij/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_pamyat_9_uprazhnenij/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Память после 60: 9 простых упражнений, которые работают</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Памятка безопасности для ваших клиентов (готовая)</title>
-      <link>./articles/article_pamyatka_bezopasnosti/</link>
-      <guid isPermaLink="true">./articles/article_pamyatka_bezopasnosti/</guid>
+      <link>https://neuro-retree.github.io/articles/article_pamyatka_bezopasnosti/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_pamyatka_bezopasnosti/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Памятка безопасности для ваших клиентов (готовая)</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Пассивный доход: безопасные пути и опасные ловушки</title>
-      <link>./articles/article_passiv_dohod_bezopasno/</link>
-      <guid isPermaLink="true">./articles/article_passiv_dohod_bezopasno/</guid>
+      <link>https://neuro-retree.github.io/articles/article_passiv_dohod_bezopasno/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_passiv_dohod_bezopasno/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Пассивный доход: безопасные пути и опасные ловушки</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Пассивный доход: 5 ошибок, на которых теряют деньги</title>
-      <link>./articles/article_passivnyj_dohod_oshibki/</link>
-      <guid isPermaLink="true">./articles/article_passivnyj_dohod_oshibki/</guid>
+      <link>https://neuro-retree.github.io/articles/article_passivnyj_dohod_oshibki/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_passivnyj_dohod_oshibki/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Пассивный доход: 5 ошибок, на которых теряют деньги</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>«Пассивный доход»: правда, которую скрывают</title>
-      <link>./articles/article_passivnyj_dohod_pravda/</link>
-      <guid isPermaLink="true">./articles/article_passivnyj_dohod_pravda/</guid>
+      <link>https://neuro-retree.github.io/articles/article_passivnyj_dohod_pravda/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_passivnyj_dohod_pravda/</guid>
       <description>Статья на сайте «Нейросети для жизни»: «Пассивный доход»: правда, которую скрывают</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Переводы и «пересказ своими словами»: простая услуга</title>
-      <link>./articles/article_perevod_svoimi_slovami/</link>
-      <guid isPermaLink="true">./articles/article_perevod_svoimi_slovami/</guid>
+      <link>https://neuro-retree.github.io/articles/article_perevod_svoimi_slovami/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_perevod_svoimi_slovami/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Переводы и «пересказ своими словами»: простая услуга</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>«Напиши за меня»: письма, жалобы, поздравления</title>
-      <link>./articles/article_pisma_zhiloby_pozdravleniya/</link>
-      <guid isPermaLink="true">./articles/article_pisma_zhiloby_pozdravleniya/</guid>
+      <link>https://neuro-retree.github.io/articles/article_pisma_zhiloby_pozdravleniya/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_pisma_zhiloby_pozdravleniya/</guid>
       <description>Статья на сайте «Нейросети для жизни»: «Напиши за меня»: письма, жалобы, поздравления</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Дзен vs Boosty vs VK: что выбрать для своих текстов</title>
-      <link>./articles/article_platformy_dzen_boosty_vk/</link>
-      <guid isPermaLink="true">./articles/article_platformy_dzen_boosty_vk/</guid>
+      <link>https://neuro-retree.github.io/articles/article_platformy_dzen_boosty_vk/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_platformy_dzen_boosty_vk/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Дзен vs Boosty vs VK: что выбрать для своих текстов</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Подагра и мочевая кислота: что можно и что нельзя есть</title>
-      <link>./articles/article_podagra_dieta/</link>
-      <guid isPermaLink="true">./articles/article_podagra_dieta/</guid>
+      <link>https://neuro-retree.github.io/articles/article_podagra_dieta/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_podagra_dieta/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Подагра и мочевая кислота: что можно и что нельзя есть</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Портфолио за вечер: 3 работы, и заказчики увидят</title>
-      <link>./articles/article_portfolio_za_vecher/</link>
-      <guid isPermaLink="true">./articles/article_portfolio_za_vecher/</guid>
+      <link>https://neuro-retree.github.io/articles/article_portfolio_za_vecher/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_portfolio_za_vecher/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Портфолио за вечер: 3 работы, и заказчики увидят</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Поздравления «от кота» и «от внучки»: необычная услуга</title>
-      <link>./articles/article_pozdravlenie_ot_kota/</link>
-      <guid isPermaLink="true">./articles/article_pozdravlenie_ot_kota/</guid>
+      <link>https://neuro-retree.github.io/articles/article_pozdravlenie_ot_kota/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_pozdravlenie_ot_kota/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Поздравления «от кота» и «от внучки»: необычная услуга</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Праздничное поздравление: тёплый текст через промт</title>
-      <link>./articles/article_pozdravlenie_s_promtom/</link>
-      <guid isPermaLink="true">./articles/article_pozdravlenie_s_promtom/</guid>
+      <link>https://neuro-retree.github.io/articles/article_pozdravlenie_s_promtom/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_pozdravlenie_s_promtom/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Праздничное поздравление: тёплый текст через промт</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Прайс: как назвать цену и не продешевить</title>
-      <link>./articles/article_prajs_ne_prodeshevit/</link>
-      <guid isPermaLink="true">./articles/article_prajs_ne_prodeshevit/</guid>
+      <link>https://neuro-retree.github.io/articles/article_prajs_ne_prodeshevit/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_prajs_ne_prodeshevit/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Прайс: как назвать цену и не продешевить</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Промт — не страшно: что писать нейросети</title>
-      <link>./articles/article_promt_ne_strashno/</link>
-      <guid isPermaLink="true">./articles/article_promt_ne_strashno/</guid>
+      <link>https://neuro-retree.github.io/articles/article_promt_ne_strashno/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_promt_ne_strashno/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Промт — не страшно: что писать нейросети</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Промты для консультации: 5 готовых запросов</title>
-      <link>./articles/article_promty_dlya_konsultacij/</link>
-      <guid isPermaLink="true">./articles/article_promty_dlya_konsultacij/</guid>
+      <link>https://neuro-retree.github.io/articles/article_promty_dlya_konsultacij/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_promty_dlya_konsultacij/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Промты для консультации: 5 готовых запросов</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Пишите просто: 5 правил понятного текста</title>
-      <link>./articles/article_prostoy_tekst/</link>
-      <guid isPermaLink="true">./articles/article_prostoy_tekst/</guid>
+      <link>https://neuro-retree.github.io/articles/article_prostoy_tekst/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_prostoy_tekst/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Пишите просто: 5 правил понятного текста</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Как проверить себя на долги (ФССП) за 5 минут</title>
-      <link>./articles/article_proverka_dolgov_fssp/</link>
-      <guid isPermaLink="true">./articles/article_proverka_dolgov_fssp/</guid>
+      <link>https://neuro-retree.github.io/articles/article_proverka_dolgov_fssp/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_proverka_dolgov_fssp/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Как проверить себя на долги (ФССП) за 5 минут</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Как проверить фирму за 5 минут: реестры и сервисы</title>
-      <link>./articles/article_proverka_firmy_za_5_minut/</link>
-      <guid isPermaLink="true">./articles/article_proverka_firmy_za_5_minut/</guid>
+      <link>https://neuro-retree.github.io/articles/article_proverka_firmy_za_5_minut/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_proverka_firmy_za_5_minut/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Как проверить фирму за 5 минут: реестры и сервисы</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Как псиллиум помогает наладить пищеварение и избежать ошибок</title>
-      <link>./articles/article_psillium/</link>
-      <guid isPermaLink="true">./articles/article_psillium/</guid>
+      <link>https://neuro-retree.github.io/articles/article_psillium/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_psillium/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Как псиллиум помогает наладить пищеварение и избежать ошибок</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Псиллиум и лекарства: важный интервал в 2 часа</title>
-      <link>./articles/article_psillium_lekarstva/</link>
-      <guid isPermaLink="true">./articles/article_psillium_lekarstva/</guid>
+      <link>https://neuro-retree.github.io/articles/article_psillium_lekarstva/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_psillium_lekarstva/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Псиллиум и лекарства: важный интервал в 2 часа</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Публичный Wi-Fi в кафе: что можно делать, а что нельзя</title>
-      <link>./articles/article_public_wifi/</link>
-      <guid isPermaLink="true">./articles/article_public_wifi/</guid>
+      <link>https://neuro-retree.github.io/articles/article_public_wifi/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_public_wifi/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Публичный Wi-Fi в кафе: что можно делать, а что нельзя</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Расшифровка видео в текст: услуга на каждый день</title>
-      <link>./articles/article_rasshifrovka_video/</link>
-      <guid isPermaLink="true">./articles/article_rasshifrovka_video/</guid>
+      <link>https://neuro-retree.github.io/articles/article_rasshifrovka_video/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_rasshifrovka_video/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Расшифровка видео в текст: услуга на каждый день</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Комнатные растения после 60: польза для тела и ума</title>
-      <link>./articles/article_rasteniya_60/</link>
-      <guid isPermaLink="true">./articles/article_rasteniya_60/</guid>
+      <link>https://neuro-retree.github.io/articles/article_rasteniya_60/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_rasteniya_60/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Комнатные растения после 60: польза для тела и ума</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Новые схемы мошенников 2026: не отдайте денег</title>
-      <link>./articles/article_shemy_moshennikov_2026/</link>
-      <guid isPermaLink="true">./articles/article_shemy_moshennikov_2026/</guid>
+      <link>https://neuro-retree.github.io/articles/article_shemy_moshennikov_2026/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_shemy_moshennikov_2026/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Новые схемы мошенников 2026: не отдайте денег</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Блогинг для 55+: почему он стал делом старшего поколения</title>
-      <link>./articles/article_shkola_bloginga_55/</link>
-      <guid isPermaLink="true">./articles/article_shkola_bloginga_55/</guid>
+      <link>https://neuro-retree.github.io/articles/article_shkola_bloginga_55/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_shkola_bloginga_55/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Блогинг для 55+: почему он стал делом старшего поколения</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Слух и память: недооценённая связь</title>
-      <link>./articles/article_sluh_i_pamyat/</link>
-      <guid isPermaLink="true">./articles/article_sluh_i_pamyat/</guid>
+      <link>https://neuro-retree.github.io/articles/article_sluh_i_pamyat/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_sluh_i_pamyat/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Слух и память: недооценённая связь</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Служба подписки: 3 консультации в месяц</title>
-      <link>./articles/article_sluzhba_podpiski/</link>
-      <guid isPermaLink="true">./articles/article_sluzhba_podpiski/</guid>
+      <link>https://neuro-retree.github.io/articles/article_sluzhba_podpiski/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_sluzhba_podpiski/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Служба подписки: 3 консультации в месяц</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Соцконтракт: деньги на ваше дело от государства</title>
-      <link>./articles/article_sockontrakt/</link>
-      <guid isPermaLink="true">./articles/article_sockontrakt/</guid>
+      <link>https://neuro-retree.github.io/articles/article_sockontrakt/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_sockontrakt/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Соцконтракт: деньги на ваше дело от государства</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Солнечные панели на балконе: сколько света и денег они дают</title>
-      <link>./articles/article_solnechnye_paneli_balkon/</link>
-      <guid isPermaLink="true">./articles/article_solnechnye_paneli_balkon/</guid>
+      <link>https://neuro-retree.github.io/articles/article_solnechnye_paneli_balkon/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_solnechnye_paneli_balkon/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Солнечные панели на балконе: сколько света и денег они дают</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Озвучка текста: Zvukogram, ElevenLabs или Silero</title>
-      <link>./articles/article_sravnenie_ozvuchki/</link>
-      <guid isPermaLink="true">./articles/article_sravnenie_ozvuchki/</guid>
+      <link>https://neuro-retree.github.io/articles/article_sravnenie_ozvuchki/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_sravnenie_ozvuchki/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Озвучка текста: Zvukogram, ElevenLabs или Silero</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Субтитры на русском: не только для слабослышащих</title>
-      <link>./articles/article_subtitry/</link>
-      <guid isPermaLink="true">./articles/article_subtitry/</guid>
+      <link>https://neuro-retree.github.io/articles/article_subtitry/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_subtitry/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Субтитры на русском: не только для слабослышащих</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Как нейросеть предсказывает по таблицам: просто о сложном</title>
-      <link>./articles/article_tabldm_predskazanie/</link>
-      <guid isPermaLink="true">./articles/article_tabldm_predskazanie/</guid>
+      <link>https://neuro-retree.github.io/articles/article_tabldm_predskazanie/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_tabldm_predskazanie/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Как нейросеть предсказывает по таблицам: просто о сложном</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Telegram-партнёрки: заработок на «Звёздах» без вложений</title>
-      <link>./articles/article_telegram_partnerki/</link>
-      <guid isPermaLink="true">./articles/article_telegram_partnerki/</guid>
+      <link>https://neuro-retree.github.io/articles/article_telegram_partnerki/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_telegram_partnerki/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Telegram-партнёрки: заработок на «Звёздах» без вложений</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Как за 4 вечера создать продающий пост, который привлечёт клиентов</title>
-      <link>./articles/article_upakui_za_vecher/</link>
-      <guid isPermaLink="true">./articles/article_upakui_za_vecher/</guid>
+      <link>https://neuro-retree.github.io/articles/article_upakui_za_vecher/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_upakui_za_vecher/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Как за 4 вечера создать продающий пост, который привлечёт клиентов</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Вайб-кодинг без программирования: свой инструмент</title>
-      <link>./articles/article_vajb_koding/</link>
-      <guid isPermaLink="true">./articles/article_vajb_koding/</guid>
+      <link>https://neuro-retree.github.io/articles/article_vajb_koding/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_vajb_koding/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Вайб-кодинг без программирования: свой инструмент</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Видео из текста: от слайда к ролику без монтажёра</title>
-      <link>./articles/article_video_iz_teksta/</link>
-      <guid isPermaLink="true">./articles/article_video_iz_teksta/</guid>
+      <link>https://neuro-retree.github.io/articles/article_video_iz_teksta/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_video_iz_teksta/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Видео из текста: от слайда к ролику без монтажёра</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Волонтёрство после 60: польза для души и ума</title>
-      <link>./articles/article_volonterstvo_60/</link>
-      <guid isPermaLink="true">./articles/article_volonterstvo_60/</guid>
+      <link>https://neuro-retree.github.io/articles/article_volonterstvo_60/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_volonterstvo_60/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Волонтёрство после 60: польза для души и ума</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Вордстат: как подбирать темы для статей</title>
-      <link>./articles/article_vordstat_temy/</link>
-      <guid isPermaLink="true">./articles/article_vordstat_temy/</guid>
+      <link>https://neuro-retree.github.io/articles/article_vordstat_temy/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_vordstat_temy/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Вордстат: как подбирать темы для статей</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Как отвечать на возражения клиентов: 5 ответов</title>
-      <link>./articles/article_vozrazheniya_klientov/</link>
-      <guid isPermaLink="true">./articles/article_vozrazheniya_klientov/</guid>
+      <link>https://neuro-retree.github.io/articles/article_vozrazheniya_klientov/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_vozrazheniya_klientov/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Как отвечать на возражения клиентов: 5 ответов</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Как не попасться на выдумки нейросети</title>
-      <link>./articles/article_vydumki_ii/</link>
-      <guid isPermaLink="true">./articles/article_vydumki_ii/</guid>
+      <link>https://neuro-retree.github.io/articles/article_vydumki_ii/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_vydumki_ii/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Как не попасться на выдумки нейросети</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Как выводить деньги с Boosty: без комиссии и без ошибок</title>
-      <link>./articles/article_vyvod_s_boosty/</link>
-      <guid isPermaLink="true">./articles/article_vyvod_s_boosty/</guid>
+      <link>https://neuro-retree.github.io/articles/article_vyvod_s_boosty/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_vyvod_s_boosty/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Как выводить деньги с Boosty: без комиссии и без ошибок</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Как замедлить Альцгеймер: 5 рычагов в ваших руках</title>
-      <link>./articles/article_zamedlit_alzgejmer/</link>
-      <guid isPermaLink="true">./articles/article_zamedlit_alzgejmer/</guid>
+      <link>https://neuro-retree.github.io/articles/article_zamedlit_alzgejmer/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_zamedlit_alzgejmer/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Как замедлить Альцгеймер: 5 рычагов в ваших руках</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>«Замените счёт в Центробанке» — схема мошенников</title>
-      <link>./articles/article_zamena_scheta_cb/</link>
-      <guid isPermaLink="true">./articles/article_zamena_scheta_cb/</guid>
+      <link>https://neuro-retree.github.io/articles/article_zamena_scheta_cb/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_zamena_scheta_cb/</guid>
       <description>Статья на сайте «Нейросети для жизни»: «Замените счёт в Центробанке» — схема мошенников</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Запоры после 60: как выбрать безопасное слабительное</title>
-      <link>./articles/article_zapor_sredstva/</link>
-      <guid isPermaLink="true">./articles/article_zapor_sredstva/</guid>
+      <link>https://neuro-retree.github.io/articles/article_zapor_sredstva/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_zapor_sredstva/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Запоры после 60: как выбрать безопасное слабительное</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Заработок с нейросетью после 50: что реально</title>
-      <link>./articles/article_zarabotok_ii_50/</link>
-      <guid isPermaLink="true">./articles/article_zarabotok_ii_50/</guid>
+      <link>https://neuro-retree.github.io/articles/article_zarabotok_ii_50/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_zarabotok_ii_50/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Заработок с нейросетью после 50: что реально</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Заработок на чат-ботах с ИИ без программирования</title>
-      <link>./articles/article_zarabotok_na_botah/</link>
-      <guid isPermaLink="true">./articles/article_zarabotok_na_botah/</guid>
+      <link>https://neuro-retree.github.io/articles/article_zarabotok_na_botah/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_zarabotok_na_botah/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Заработок на чат-ботах с ИИ без программирования</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Халатность врача: куда жаловаться и как защитить себя</title>
-      <link>./articles/article_zhaloba_na_vracha/</link>
-      <guid isPermaLink="true">./articles/article_zhaloba_na_vracha/</guid>
+      <link>https://neuro-retree.github.io/articles/article_zhaloba_na_vracha/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_zhaloba_na_vracha/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Халатность врача: куда жаловаться и как защитить себя</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Зоотерапия после 60: 15 минут с питомцем творят чудеса</title>
-      <link>./articles/article_zooterapiya/</link>
-      <guid isPermaLink="true">./articles/article_zooterapiya/</guid>
+      <link>https://neuro-retree.github.io/articles/article_zooterapiya/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_zooterapiya/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Зоотерапия после 60: 15 минут с питомцем творят чудеса</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>
     <item>
       <title>Зрение после 60: макулярная дегенерация и тест Амслера</title>
-      <link>./articles/article_zrenie_makula/</link>
-      <guid isPermaLink="true">./articles/article_zrenie_makula/</guid>
+      <link>https://neuro-retree.github.io/articles/article_zrenie_makula/</link>
+      <guid isPermaLink="true">https://neuro-retree.github.io/articles/article_zrenie_makula/</guid>
       <description>Статья на сайте «Нейросети для жизни»: Зрение после 60: макулярная дегенерация и тест Амслера</description>
       <pubDate>2026-10-20T00:00:00+03:00</pubDate>
     </item>  </channel>
 </rss>
-

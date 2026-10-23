@@ -1,10 +1,10 @@
-﻿# Реестр копий сайта «Нейросети для жизни» — 22.10.2026 (политика синергирования)
+# Реестр копий сайта «Нейросети для жизни» — 22.10.2026 (политика синергирования)
 
 Единая точка правды: **site_project** (исходники + генератор) → клон **Temp\gigatool\site_push\repo** (git -> GitHub Pages, прод).
 
 ## Активные копии (используются)
 - `МОЙ_ПРОЕКТ\work_add\site_project\` — ЖИВАЯ копия (исходники, генератор rebuild_site.py, статьи .md, assets). Правки вносятся здесь.
-- `C:\Users\Tania\AppData\Local\Temp\gigatool\site_push\repo\` — клон репозитория neuro-retree/site (деплой). Синхронизируется с site_project перед push. Прод: ./site/.
+- `C:\Users\Tania\AppData\Local\Temp\gigatool\site_push\repo\` — клон репозитория neuro-retree/site (деплой). Синхронизируется с site_project перед push. Прод: https://neuro-retree.github.io/site/.
 - `МОЙ_ПРОЕКТ\БЭКАП\site_dups_2026-10-22\` — бэкап вычищенных 135 вложенных дублей.
 
 ## Устаревшие копии (НЕ синергировать, документировано; решение владельца о судьбе)
