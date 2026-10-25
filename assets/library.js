@@ -5,7 +5,7 @@
    Контент: статьи (articles.json), обучение (learning), тома (tomes.json), автор, видео-заглушки. */
 (function () {
   "use strict";
-  var SLOW = true;   // <-- переключатель: true = отладка, false = быстрая боевая анимация
+  var SLOW = false;   // <-- переключатель: true = отладка, false = быстрая боевая анимация
   var REDUCE = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   var BASE = "https://neuro-retree.github.io/";
 var CONFIG = {
