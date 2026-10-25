@@ -330,8 +330,11 @@ button:focus-visible,a:focus-visible{outline:3px solid #e5a000;outline-offset:3p
 """
 
 
+LIB_CSS_VER = "20261024c"
+LINK_VER = "20261022"
+
 def page(title, desc, body, canonical, extra_head="", lib=False, ogtype="website"):
-    assets_lib = ('<link rel="stylesheet" href="assets/library.css?v=20261024b">\n<script src="assets/library.js?v=20261024b"></script>') if lib else ""
+    assets_lib = ('<link rel="stylesheet" href="assets/library.css?v=%s">\n<script src="assets/library.js?v=%s"></script>') % (LIB_CSS_VER, LIB_CSS_VER) if lib else ""
     return """<!DOCTYPE html>
 <html lang="ru">
 <head>
