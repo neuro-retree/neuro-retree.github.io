@@ -129,7 +129,7 @@
 
   function init() {
     if (!document.getElementById("bookSpread")) return;
-    var base = "https://neuro-retree.github.io/site/";
+    var base = "https://neuro-retree.github.io/";
     loadJSON(base + "data/tomes.json", function (data) {
       tomes = data.tomes || [];
       loadJSON(base + "articles/catalog.json", function (adata) {

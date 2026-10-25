@@ -187,13 +187,16 @@ def inline(t):
     return s
 
 
-def md_to_html(t):
-    """Возвращает (html_body, toc), где toc — список (id, уровень, текст)."""
+def md_to_html(t, skip_first_h=False):
+    """Возвращает (html_body, toc), где toc — список (id, уровень, текст).
+    Если skip_first_h=True, первая строка-заголовок (# ...) пропускается
+    (это дубль H1, который уже выведен из каталога)."""
     lines = t.split("\n")
     out = []
     list_type = None
     toc = []
     h_count = 0
+    first_h_skipped = not skip_first_h
 
     def close_list():
         nonlocal list_type
@@ -210,6 +213,11 @@ def md_to_html(t):
         if m:
             close_list()
             level = len(m.group(1))
+            if not first_h_skipped and level == 1:
+                # первая строка-# — это дубль H1 статьи; пропускаем её
+                first_h_skipped = True
+                continue
+            first_h_skipped = True
             txt = inline(m.group(2))
             h_count += 1
             hid = "h%d" % h_count
@@ -422,7 +430,7 @@ def verified_block(slug, title):
 
 
 def build_article(a, md_text):
-    body_html, toc = md_to_html(md_text)
+    body_html, toc = md_to_html(md_text, skip_first_h=True)
     cat = CATEGORY_LABELS.get(a["tags"][0], a["tags"][0])
     toc_html = ""
     if len(toc) > 2:

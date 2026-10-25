@@ -18,15 +18,11 @@
   margin:0;color:var(--paper);
   background:radial-gradient(ellipse at 50% 6%,#493525 0%,#201610 58%,#100c09 100%);
   font-family:Georgia,'Times New Roman',serif;
-  min-height:100vh;overflow-x:hidden;
-  /* Единый источник длительностей (читается JS) — всегда согласованы CSS и JS */
-  /* ВРЕМЕННО (23.10.2026): замедлено для наблюдения за анимацией.
-     Раскрытие: 2с (вытягивание) + 5с (раскрытие) + 3с (приближение) = 10 секунд. */
-  --lib-anim-pull:2000ms;
-  --lib-anim-open:5000ms;
-  --lib-anim-zoom:3000ms;
-  --lib-anim-close:3000ms;
-  --lib-anim-return:2000ms;
+  min-height:100vh;overflow-x:hidden;overflow-x:clip;   /* clip: режет только по горизонтали (Safari ≥16, остальные — hidden) */
+  /* Длительности фаз анимации CSS больше не хранит: library.js пишет текущую
+     длительность в переменную --tt на книге (единственный источник — CONFIG.anim).
+     Рассинхрон CSS и JS, из-за которого «состояния переключались раньше анимации», невозможен. */
+  --tilt:8deg;
 }
 #libraryApp.lib-mode a{color:var(--gold)}
 #libraryApp.lib-mode button{font-family:Georgia,serif}
@@ -35,274 +31,147 @@
 .lib-scene{position:relative;min-height:100svh;display:grid;place-items:end center;perspective:1200px;perspective-origin:50% 72%;padding-bottom:3vh}
 /* тёплая «лампа» сверху: мягкий радиальный свет, придаёт сцене глубину (без текстуры) */
 .lib-scene::after{
-  content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
+  content:"";position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none;z-index:1;
   background:radial-gradient(45% 32% at 50% -4%,rgba(255,206,130,.22),rgba(255,206,130,.05) 55%,transparent 78%);
 }
-.lib-shelf{width:min(1120px,94vw);transform:rotateX(8deg) translateY(2vh);transform-style:preserve-3d}
-.lib-row{display:flex;align-items:flex-end;justify-content:center;gap:clamp(4px,1.1vw,16px);padding:26px 16px 0}
+.lib-shelf{width:min(1120px,94vw);transform:rotateX(var(--tilt,8deg)) translateY(2vh);transform-style:preserve-3d}
+.lib-row{display:flex;align-items:flex-end;justify-content:center;gap:clamp(4px,1.1vw,16px);padding:26px 16px 0;transform-style:preserve-3d}
 .lib-board{height:var(--shelf-h);background:linear-gradient(180deg,#775337,#392419 70%,#170f0a);box-shadow:0 16px 30px rgba(0,0,0,.6);border-radius:2px}
 
-/* ---- Книга на полке ---- */
+/* ---- Книга на полке ------------------------------------------------------
+   МОДЕЛЬ (переписана 23.10.2026, вместо пяти «кубов» с поворотами по краям):
+   Книга — это 4 детали вокруг одной оси (корешок), как настоящая:
+     .bk-spine  корешок            красный   --c-spine
+     .bk-back   задняя обложка     зелёный   --c-cover-back
+     .bk-pr     правая половина блока страниц: листы жёлтые --c-pages, срез оранжевый --c-edge
+     .cv        ШАРНИР передней обложки (вращается вокруг оси корешка), внутри:
+       .bk-front  передняя обложка синяя     --c-cover
+       .bk-pl     левая половина блока страниц
+   Все размеры — переменные книги (их ставит library.js):
+     --bw толщина книги = ширина корешка · --bh высота · --cw ширина обложки
+     --th толщина картона · --ovh выступ обложки сверху/снизу · --fore выступ за передний обрез
+   Система координат .bk: «лицом к зрителю» — обложка смотрит на нас, корешок слева, ось = x=0.
+   На полке .bk повёрнут на +90° вокруг оси корешка — поэтому виден только корешок.
+   Раскрытие = (1) .bk поворачивается на 0° (книга лицом к зрителю),
+               (2) .cv поворачивается на −180° (обложка вместе с левой половиной страниц откидывается влево).
+   Состояния — накопительные классы на .lib-book: pulling → +opening → +zooming (JS снимает их по очереди
+   в обратном порядке, поэтому закрытие — это просто «проиграть назад»).
+   ВАЖНО для 3D: у предков и деталей нельзя ставить filter, opacity<1, overflow≠visible, mix-blend-mode,
+   clip-path, isolation — они «сплющивают» preserve-3d. Для затемнения используйте цвета/градиенты. */
 .lib-book{
-  position:relative;flex:0 1 var(--bw,64px);min-width:0;height:var(--bh,413px);cursor:pointer;
-  border:1px solid rgba(230,200,145,.4);border-radius:3px 8px 8px 3px;
-  /* ВРЕМЕННО (23.10.2026): сплошные РАЗНЫЕ цвета элементов книги, без текстур.
-     Палитра для наладки полки: каждый элемент — свой цвет.
-     --c-body  зелёный   — «тело» контейнера книги (виден между гранями)
-     --c-spine красный   — корешок (узкая грань, видна на полке)
-     --c-cover синий     — передняя обложка (лицо при раскрытии)
-     --c-cover-back зелёный — задняя обложка
-     --c-pages жёлтый    — большие грани страниц
-     --c-edge  оранжевый — срез страниц (торцы блока) */
-  background:transparent;
-  background-size:auto;background-position:center;
-  box-shadow:-6px 7px 11px rgba(0,0,0,.5),0 14px 24px rgba(0,0,0,.35);
-  transform-origin:center bottom;
-  transition:transform .45s ease,box-shadow .45s ease,filter .45s ease;
+  --th:6px;--ovh:6px;--fore:6px;
+  --pg:calc(var(--bw,84px) - 2*var(--th));            /* толщина всего блока страниц */
+  position:relative;flex:0 1 var(--bw,64px);min-width:0;height:var(--bh,413px);width:var(--bw,64px);cursor:pointer;
+  background:transparent;border:0;
+  transform-style:preserve-3d;transform-origin:50% 50%;
+  transform:translate3d(0,0,0) rotateX(0deg) scale3d(1,1,1);
+  transition:transform var(--tt,.45s) cubic-bezier(.3,.7,.2,1),opacity 1s;
 }
-.lib-book:hover,.lib-book:focus-visible{
-  transform:translateY(-16px) translateZ(28px);
-  box-shadow:-9px 10px 16px rgba(0,0,0,.55),0 0 28px var(--warm-light);
-  filter:brightness(1.15);
-}
-/* лёгкая тень между соседними книгами (глубина ряда): тонкая тёмная полоса справа */
-.lib-row .lib-book:not(:last-child)::before{
-  box-shadow:inset -8px 0 10px -8px rgba(0,0,0,.75);
-}
+.lib-book:not(.pulling):hover,.lib-book:not(.pulling):focus-visible{transform:translate3d(0,-14px,24px) rotateX(0deg) scale3d(1,1,1)}
 .lib-book:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
-/* боковой свет: отключён для наладки (чистые цвета) 23.10.2026 */
-.lib-book::after{display:none}
-/* ==== «Книжность» корешка: переплётные бинты, капталы, выпуклость, тиснение ====
-   Корешок — узкая грань книги, когда она стоит на полке. Чтобы он выглядел
-   как настоящий переплёт, а не плоский цветной прямоугольник:
-   - вертикальные «бинты» (поперечные выпуклости переплёта) — repeating-gradient;
-   - капталы сверху/снизу (утолщение с лентами у обложки);
-   - цилиндрическая выпуклость (горизонтальный градиент света/тени);
-   - мягкая рамка-«тиснение» по краям.
-   Всё скрывается при раскрытии (.opening/.zooming), когда видна обложка. */
-.lib-book::before{
-  content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
-  border-radius:inherit;
-  background:
-    /* каптал сверху: тёмная полоса с «нитками» */
-    repeating-linear-gradient(90deg,rgba(255,255,255,.16) 0 2px,transparent 2px 5px) 0 0/100% 8px no-repeat,
-    /* каптал снизу */
-    repeating-linear-gradient(90deg,rgba(255,255,255,.16) 0 2px,transparent 2px 5px) 0 100%/100% 8px no-repeat,
-    /* бинты: 3 поперечные выпуклости на корешке (свет сверху, тень снизу) */
-    linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,.05) 45%,rgba(0,0,0,.4)) 0 180px/100% 34px no-repeat,
-    linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,.05) 45%,rgba(0,0,0,.4)) 0 55%/100% 34px no-repeat,
-    /* лёгкая «рамка-тиснение»: сверху и снизу корешка */
-    linear-gradient(180deg,#fff9,transparent 10px) 0 0/100% 10px no-repeat,
-    linear-gradient(0deg,#0006,transparent 10px) 0 100%/100% 10px no-repeat;
-  opacity:.95;
-}
-.lib-book.opening::before,.lib-book.zooming::before{opacity:0;transition:opacity .5s}
+.lib-book:hover .bk-spine{box-shadow:inset 0 0 0 1px rgba(0,0,0,.25),0 0 28px var(--warm-light)}
+/* Тень на полке (элемент создаёт JS; computeShadow двигает его по X) */
+.lib-box-shadow{position:absolute;left:-6px;right:-6px;bottom:-4px;height:12px;border-radius:50%;
+  background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,.55),transparent 70%);pointer-events:none}
+/* Невидимая «кнопка» поверх корешка: клик гарантированно попадает в книгу (в 3D-сцене клики
+   по граням перспективно повёрнутых деталей теряются — проверено elementFromPoint) */
+.lib-book .lib-hit{position:absolute;top:0;right:0;bottom:0;left:0;transform:translateZ(2px)}
+.lib-book.opening .lib-hit,.lib-book.zooming .lib-hit{pointer-events:none}
 
-/* ---- Анимация вытягивания/раскрытия — см. секцию «РАСКРЫТИЕ (в ШИРИНУ)» ниже.
-   Здесь правил нет: они объявлены ниже, чтобы не конфликтовать с поворотом книги. */
+/* Положения всей книги (структура transform одинаковая — браузер интерполирует каждую функцию отдельно):
+   translate3d(x,y,z) rotateX(наклон) scale3d(k,k,k). --dx/--dy/--s-* считает library.js (placeBook). */
+.lib-book.pulling{transform:translate3d(0,-20px,170px) rotateX(0deg) scale3d(1,1,1);z-index:40}
+.lib-book.opening{transform:translate3d(var(--dx,0px),var(--dy,0px),0px) rotateX(calc(var(--tilt,8deg)*-1)) scale3d(var(--s-open,1.2),var(--s-open,1.2),var(--s-open,1.2));z-index:50}
+.lib-book.zooming{transform:translate3d(var(--dx,0px),var(--dy,0px),0px) rotateX(calc(var(--tilt,8deg)*-1)) scale3d(var(--s-zoom,1.6),var(--s-zoom,1.6),var(--s-zoom,1.6));z-index:60}
 
-/* ---- 3D-структура книги: 5 параллелепипедов (настоящие кубы из 6 граней) ----
-   П1 блок страниц (толстый) · П2 одна страница (тонкая) · П3 левая обложка
-   · П4 правая обложка (с названием) · П5 корешок.
-   РАСПОЛОЖЕНИЕ (как у настоящей книги, закрытый вид):
-   - Книга стоит НА ПОЛКЕ КОРЕШКОМ: корешок (П5) — узкая грань ВЫСОТОЙ равна
-     обложкам (--bh + 12px), стоит ПОВЕРХ обложек и закрывает их (по центру глубины).
-   - Обложки (П3, П4) — широкие (--cw), высотой как корешок (--bh + 12px),
-     лежат ВГЛУБЬ (повёрнуты на 90°), их центры совпадают с центром корешка.
-   - Страницы (П1, П2) — высотой МЕНЬШЕ корешка НА 2 ТОЛЩИНЫ обложки (2*--th),
-     лежат ВГЛУБЬ за корешком; корешок закрывает их от камеры.
-   При раскрытии (opening) все блоки поворачиваются и встают лицом — книга
-   раскрывается В ШИРИНУ. */
-.lib-book{transform-style:preserve-3d;perspective:1400px;width:var(--bw,64px);overflow:visible}
-.lib-book .bd{position:absolute;left:0;top:0;width:100%;height:100%;transform-style:preserve-3d}
-.lib-book .bd .face{position:absolute;left:0;top:0;width:100%;height:100%;backface-visibility:hidden;
-  background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(0,0,0,var(--shade,.42)) 130%);
-  box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
-/* Толщина обложки --th (материал) и выступ обложек над страницами */
-.lib-book{--th:6px}
-/* Обложки (П3, П4): ширина --cw, высота = высоте корешка (--bh + 12px),
-   центр по Y совпадает с центром корешка (top:-6px), повёрнуты вглубь (rotateY(-90deg)),
-   transform-origin: left center — от левого края. */
-.lib-book .bd-cover-l,.lib-book .bd-cover-r{
-  width:var(--cw,220px);height:calc(100% + 12px);left:0;top:-6px;
-  transform:rotateY(-90deg);transform-origin:left center;
-  --w:var(--th,6px);
-  transition:transform var(--lib-anim-open,900ms) cubic-bezier(.3,.7,.2,1);
-}
-/* Страницы (П1, П2): ширина --cw, высотой на 2 толщины обложки МЕНЬШЕ корешка
-   (top: -6px + --th), чтобы верх/низ корешка выступали. */
-.lib-book .bd-pages-block,.lib-book .bd-single-page{
-  width:var(--cw,220px);height:calc(100% + 12px - 2*var(--th,6px));left:0;top:calc(-6px + var(--th,6px));
-  transform:rotateY(-90deg);transform-origin:left center;
-  --w:6px;
-  transition:transform var(--lib-anim-open,900ms) cubic-bezier(.3,.7,.2,1);
-}
-.lib-book .bd-pages-block{--w:calc((var(--bw,84px) - 2*var(--th,6px))/2)}
-.lib-book .bd-single-page{--w:2px}
+/* Корпус книги. Ось вращения — корешок: .bk шириной 0 стоит по центру слота, x=0 — ось. */
+.lib-book .bk{position:absolute;left:50%;top:0;width:0;height:100%;transform-style:preserve-3d;
+  transform:rotateY(90deg);                                  /* на полке: корешком к зрителю */
+  transition:transform calc(var(--tt,.45s)*.45) ease-in-out calc(var(--tt,.45s)*.55)}   /* при закрытии — вторым шагом */
+.lib-book.opening .bk{transform:rotateY(0deg);transition-delay:0s}                       /* при раскрытии — первым шагом */
+/* Шарнир передней обложки */
+.lib-book .cv{position:absolute;left:0;top:0;width:var(--cw,220px);height:100%;transform-style:preserve-3d;
+  transform-origin:0 50% 0;transform:rotateY(0deg);
+  transition:transform calc(var(--tt,.45s)*.55) ease-in-out 0s}                           /* при закрытии — первым шагом */
+.lib-book.opening .cv{transform:rotateY(-180deg);transition-delay:calc(var(--tt,.45s)*.45)} /* при раскрытии — вторым шагом */
 
-/* Торцы страниц: --w у ПЕРЕДНЕЙ/ЗАДНЕЙ граней уже = половина толщины (см. выше),
-   боковые грани получают ТУ ЖЕ половину (а не calc(--cw*.18/2)) — единая толщина. */
-.lib-book .bd-pages-block .face-top,
-.lib-book .bd-pages-block .face-bottom,
-.lib-book .bd-pages-block .face-left,
-.lib-book .bd-pages-block .face-right{--w:var(--w)}
-.lib-book .bd-single-page .face-top,
-.lib-book .bd-single-page .face-bottom,
-.lib-book .bd-single-page .face-left,
-.lib-book .bd-single-page .face-right{--w:var(--w)}
-/* Закрытое состояние (по модели владельца):
-   Корешок (П5) — у ПЕРЕДНЕГО края (left:0), z-index поверх всего.
-   Передняя обложка (П4, с названием, теперь ЛЕВАЯ .bd-cover-l) — крепится КРОМКОЙ
-     к ЛЕВОМУ краю ЗАДНЕЙ грани корешка, одевает ЛЕВУЮ грань блока страниц:
-     поворачивается вокруг своей левой кромки (rotateY(-90) от left center).
-   Задняя обложка (П3, теперь ПРАВАЯ .bd-cover-r) — крепится к ПРАВОМУ краю задней
-     грани корешка, одевает ПРАВУЮ грань блока страниц: rotateY(90) от right center
-     (правый край на месте, блок уходит вглубь вправо).
-   Страницы (П1, П2) — крепятся к ЦЕНТРУ задней грани корешка, между обложками. */
-.lib-book .bd-cover-l{transform:rotateY(-90deg)}
-.lib-book .bd-cover-r{transform:rotateY(90deg)}
-/* П5 КОРЕШОК: узкая грань на полке. В закрытом виде — ЕДИНСТВЕННЫЙ видимый элемент
-   книги (все остальные блоки скрыты, см. правило ниже). Высотой равен обложкам
-   (--bh + 12px), стоит по центру контейнера (left:0 при width:var(--bw)). */
-.lib-book .bd-spine{width:var(--bw,64px);height:calc(100% + 12px);left:0;top:-6px;transform:none;z-index:10}
-.lib-book .bd-spine .face{
-  background:var(--c-spine,#b3261e);
-  /* ВРЕМЕННО (23.10.2026): корешок — сплошной красный, без текстур и градиентов */
-  background-image:none;
-  background-size:auto;background-position:center;
-}
-/* ЗАКРЫТАЯ КНИГА = ВИДЕН ТОЛЬКО КОРЕШОК (наладка 23.10.2026).
-   Обложки, страницы и срез существуют только для раскрытия (.opening/.zooming),
-   в состоянии полки они полностью убраны (display:none — visibility оставляет
-   transform-позицию, и узкое ребро блока всё равно рисуется). */
-.lib-book:not(.pulling):not(.opening):not(.zooming) .bd:not(.bd-spine){display:none}
-/* ---------- ГРАНИ КУБА ---------- */
-.lib-book .bd .face-front{transform:translateZ(var(--w))}
-.lib-book .bd .face-back{transform:translateZ(calc(var(--w)*-1)) rotateY(180deg)}
-.lib-book .bd .face-top{width:100%;height:var(--w);top:0;transform-origin:top;transform:rotateX(90deg)}
-.lib-book .bd .face-bottom{width:100%;height:var(--w);bottom:0;transform-origin:bottom;transform:rotateX(-90deg)}
-.lib-book .bd .face-left{width:var(--w);height:100%;left:0;transform-origin:left;transform:rotateY(-90deg)}
-.lib-book .bd .face-right{width:var(--w);height:100%;right:0;transform-origin:right;transform:rotateY(90deg)}
-/* ---------- ОФОРМЛЕНИЕ ГРАНЕЙ ---------- */
-/* страницы (П1, П2) — сплошной ЖЁЛТЫЙ (ВРЕМЕННО, для наладки полки 23.10.2026) */
-.lib-book .bd-pages-block .face,
-.lib-book .bd-single-page .face{background:var(--c-pages,#e8c840)}
-.lib-book .bd-pages-block .face-front,
-.lib-book .bd-pages-block .face-back,
-.lib-book .bd-single-page .face-front,
-.lib-book .bd-single-page .face-back{
-  background-image:none;
-  background-size:auto;background-position:center;
-}
-/* профиль страниц: узкие грани (торец блока, срез листов) — сплошной ОРАНЖЕВЫЙ срез */
-.lib-book .bd-pages-block .face-top,
-.lib-book .bd-pages-block .face-bottom,
-.lib-book .bd-pages-block .face-left,
-.lib-book .bd-pages-block .face-right,
-.lib-book .bd-single-page .face-top,
-.lib-book .bd-single-page .face-bottom,
-.lib-book .bd-single-page .face-left,
-.lib-book .bd-single-page .face-right{
-  background:var(--c-edge,#e07b1f);background-image:none;
-}
-/* лёгкое затенение профиля: отключено для наладки (чистые цвета) 23.10.2026 */
-.lib-book .bd-pages-block .face-left,
-.lib-book .bd-pages-block .face-right{
-  box-shadow:none;
-}
-/* обложки (П3, П4) — сплошные РАЗНЫЕ цвета (ВРЕМЕННО, для наладки полки 23.10.2026):
-   передняя (П4, лицо) — СИНЯЯ, задняя (П3) — ЗЕЛЁНАЯ. */
-/* Обложки: ЛЕВАЯ = передняя (лицо, с названием, --c-cover синяя),
-   ПРАВАЯ = задняя (--c-cover-back зелёная). */
-.lib-book .bd-cover-l .face{background:var(--c-cover,#2e6cb3);background-image:none}
-.lib-book .bd-cover-r .face{background:var(--c-cover-back,#3a6b35);background-image:none}
-/* лицо (левая обложка) — чистый цвет (глянец снят для наладки) */
-.lib-book .bd-cover-l .face-front{background:var(--c-cover,#2e6cb3)}
-/* подпись названия: на корешке (полка) — вертикальная; на обложке (раскрытие) — горизонтальная по центру */
-.lib-book .bd-spine .title{
-  position:absolute;inset:10px 4px;display:grid;place-items:center;writing-mode:vertical-rl;
+/* Корешок: плоская панель шириной --bw, лежит в плоскости x=0 и смотрит влево */
+.lib-book .bk-spine{position:absolute;left:calc(var(--bw,84px)/-2);top:0;width:var(--bw,84px);height:var(--bh,413px);
+  transform:rotateY(-90deg) translateZ(1px);-webkit-backface-visibility:hidden;backface-visibility:hidden;   /* 1px наружу: иначе z-fighting с торцами страниц и обложек в той же плоскости */
+  background:var(--c-spine,var(--bc,#b3261e));box-shadow:inset 0 0 0 1px rgba(0,0,0,.25)}
+
+/* Универсальный параллелепипед: 6 граней вокруг центра. Размеры — --w (ширина), --h (высота),
+   --d (толщина), положение — --y (сверху) и --z (по глубине, центр). */
+.lib-book .box{position:absolute;left:0;top:var(--y,0px);width:var(--w);height:var(--h);
+  transform-style:preserve-3d;transform:translateZ(var(--z,0px))}
+.lib-book .box>.f{position:absolute;-webkit-backface-visibility:hidden;backface-visibility:hidden;box-shadow:inset 0 0 0 1px rgba(0,0,0,.22)}
+.lib-book .box>.f-front,.lib-book .box>.f-back{left:0;top:0;width:var(--w);height:var(--h)}
+.lib-book .box>.f-front{transform:translateZ(calc(var(--d)/2))}
+.lib-book .box>.f-back{transform:rotateY(180deg) translateZ(calc(var(--d)/2))}
+.lib-book .box>.f-left,.lib-book .box>.f-right{top:0;width:var(--d);height:var(--h);left:calc((var(--w) - var(--d))/2)}
+.lib-book .box>.f-right{transform:rotateY(90deg) translateZ(calc(var(--w)/2))}
+.lib-book .box>.f-left{transform:rotateY(-90deg) translateZ(calc(var(--w)/2))}
+.lib-book .box>.f-top,.lib-book .box>.f-bottom{left:0;width:var(--w);height:var(--d);top:calc((var(--h) - var(--d))/2)}
+.lib-book .box>.f-top{transform:rotateX(90deg) translateZ(calc(var(--h)/2))}
+.lib-book .box>.f-bottom{transform:rotateX(-90deg) translateZ(calc(var(--h)/2))}
+
+/* Детали (глубина z: перед книги = +T/2, зад = −T/2; T = --bw) */
+.lib-book .bk-back {--w:var(--cw,220px);--h:var(--bh,413px);--d:var(--th);--z:calc(var(--pg)/-2 - var(--th)/2)}
+.lib-book .bk-front{--w:var(--cw,220px);--h:var(--bh,413px);--d:var(--th);--z:calc(var(--pg)/2 + var(--th)/2)}
+.lib-book .bk-pr   {--w:calc(var(--cw,220px) - var(--fore));--h:calc(var(--bh,413px) - 2*var(--ovh));--d:calc(var(--pg)/2);--y:var(--ovh);--z:calc(var(--pg)/-4)}
+.lib-book .bk-pl   {--w:calc(var(--cw,220px) - var(--fore));--h:calc(var(--bh,413px) - 2*var(--ovh));--d:calc(var(--pg)/2);--y:var(--ovh);--z:calc(var(--pg)/4)}
+
+/* Цвета (тестовая палитра; потом заменить на фирменные цвета/текстуры) */
+.lib-book .bk-back .f {background:var(--c-cover-back,var(--bc,#3a6b35))}
+.lib-book .bk-front .f{background:var(--c-cover,var(--bc,#2e6cb3))}
+.lib-book .bk-front .f-back{background:var(--c-cover,var(--bc,#2e6cb3));background:color-mix(in srgb,var(--c-cover,var(--bc,#2e6cb3)) 78%,#fff)} /* изнанка обложки чуть светлее */
+.lib-book .bk-pr .f,.lib-book .bk-pl .f{background:var(--c-edge,#d8c79c)}                  /* срез страниц */
+.lib-book .bk-pr .f-front,.lib-book .bk-pr .f-back,
+.lib-book .bk-pl .f-front,.lib-book .bk-pl .f-back{background:var(--c-pages,#efe3c4)}      /* листы */
+
+/* Подписи: на корешке — вертикально, на лицевой обложке — по центру */
+.lib-book .bk-spine .title{
+  position:absolute;top:10px;right:4px;bottom:10px;left:4px;display:grid;place-items:center;writing-mode:vertical-rl;
   font-family:var(--book-font,'EB Garamond',serif);
   font-size:clamp(14px, calc(var(--bw,64px)*.35), 22px);
   letter-spacing:.12em;font-weight:600;text-align:center;color:#f2e5c9;
   text-shadow:0 1px 3px rgba(0,0,0,.8);
 }
-.lib-book .bd-cover-l .title{
+.lib-book .bk-front .f-front .title{
   position:absolute;left:10%;right:10%;top:50%;transform:translateY(-50%);text-align:center;
   font-family:var(--book-font,'EB Garamond',serif);
   font-size:clamp(22px, calc(var(--cw,220px)*.15), 36px);
   letter-spacing:.06em;font-weight:600;line-height:1.2;
   text-shadow:0 1px 3px rgba(0,0,0,.65),0 0 12px rgba(0,0,0,.35);
-  color:#f6e27a;z-index:6;
+  color:#f6e27a;
 }
-.lib-book[style*="silver"] .bd-cover-l .title{color:#e8edf1}
+.lib-book[style*="silver"] .bk-front .f-front .title{color:#e8edf1}
 
-/* ---------- РАСКРЫТИЕ (в ШИРИНУ): широкие блоки доворачиваются -90° -> 0° ----------
-   Контейнер .lib-book НЕ поворачивается (перенос и масштаб только).
-   Обложки и страницы встают лицом к зрителю: видна ШИРИНА книги (--cw),
-   с текстурой обложки и бумаги, а не узкое ребро. */
-.lib-book.pulling{
-  transform:translateZ(180px) translateY(-52px);
-  transition:transform var(--lib-anim-pull,700ms) cubic-bezier(.3,.7,.2,1),box-shadow var(--lib-anim-pull,700ms);
-  box-shadow:-10px 14px 22px rgba(0,0,0,.6),0 0 30px var(--warm-light);
-  z-index:40;
-}
-.lib-book.opening{
-  /* Центрирование раскрытой книги (по модели владельца):
-     ось/корешок — в ЦЕНТРЕ контейнера (--bw/2). Раскрытая книга симметрична
-     относительно корешка: слева левая обложка (--cw), справа правая (--cw),
-     между ними страницы. Центр раскрытой композиции ≈ позиция корешка.
-     Сдвиг контейнера не нужен (ось уже по центру) — только выдвижение вперёд. */
-  transform:translateZ(360px) translateY(-12vh) scale(1.35);
-  transition:transform var(--lib-anim-open,900ms) cubic-bezier(.25,.8,.3,1);
-  box-shadow:-12px 18px 34px rgba(0,0,0,.7),0 0 50px var(--warm-light);
-  z-index:50;
-}
-.lib-book.opening .bd-spine{
-  /* Корешок — ось раскрытия: поворачивается на 180° (его задняя грань становится
-     передней), остаётся ПО ЦЕНТРУ, но уходит назад по Z (книга раскрывается).
-     Он «нести» обложки/страницы не обязан — те крепятся к его задней грани. */
-  transform:rotateY(180deg) translateZ(calc(var(--cw,220px)*-1));
-  opacity:0;transition:transform var(--lib-anim-open,900ms),opacity .5s;
-}
-/* Раскрытие (по модели владельца): центральную часть занимает блок страниц,
-   он растягивается на (2 обложки + корешок − 2 толщины обложки) и центрируется
-   по корешку. Слева от страниц — левая обложка (--cw), справа — правая (--cw),
-   обе повёрнуты лицом (rotateY(0)) вокруг своих кромок. */
-.lib-book.opening .bd-cover-l{transform:rotateY(0deg) translateX(0)}
-.lib-book.opening .bd-cover-r{transform:rotateY(0deg) translateX(var(--cw,220px))}
-/* Страницы растягиваются: ширина = 2 обложки + корешок − 2 толщины обложки.
-   Центр корешка = --bw/2; левый край страниц = (--bw/2) − (ширина/2). */
-.lib-book.opening .bd-pages-block{
-  width:calc(2*var(--cw,220px) + var(--bw,84px) - 2*var(--th,6px));
-  left:calc(var(--bw,84px)/2 - (2*var(--cw,220px) + var(--bw,84px) - 2*var(--th,6px))/2);
-  transform:rotateY(0deg) translateX(0);
-}
-.lib-book.opening .bd-single-page{transform:rotateY(0deg) translateX(0)}
-/* при раскрытии страницы остаются чуть ниже обложек (эталон: страницы < обложек):
-   кант (обложки и корешок) выступает сверху/снизу на толщину --th */
-.lib-book.opening .bd-pages-block,
-.lib-book.opening .bd-single-page{top:var(--th,6px);height:calc(100% + 12px - 2*var(--th,6px))}
-/* книга выходит к читалке: сцена затемняется, книга приближается к центру.
-   Вместо scale(8) — умеренный перенос к центру и лёгкий рост; текст после
-   этого появляется в читалке (отдельная сцена с тем же оформлением). */
+/* Пока книга открыта (класс .is-open на #libraryApp ставит library.js):
+   — контейнер не обрезает книгу (иначе при прокрученной странице раскрытая книга режется краем библиотеки),
+   — на всё окно разворачивается тот же тёмный фон, что у библиотеки, поэтому книга не «летит» по светлой странице,
+   — прокрутка страницы заблокирована (см. lockScroll в library.js). */
+#libraryApp.lib-mode::before{content:"";position:fixed;top:0;right:0;bottom:0;left:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 6%,#493525 0%,#201610 58%,#100c09 100%);
+  opacity:0;transition:opacity .6s ease}
+#libraryApp.lib-mode.is-open{overflow:visible;position:relative;z-index:50}
+#libraryApp.lib-mode.is-open::before{opacity:1}
+#libraryApp.lib-mode .lib-scene{z-index:1}
+
+/* Остальные книги отъезжают назад и затемняются, пока одна раскрыта (opacity у НЕвыбранных — им 3D не нужен).
+   Без отъезда по z их корешки рисовались поверх разворота: в 3D порядок определяет глубина, а не z-index. */
 .lib-scene.is-opening{overflow:visible}
-.lib-scene.is-opening .lib-book:not(.pulling):not(.opening){opacity:.22;transition:opacity 1.4s}
+.lib-scene.is-opening .lib-book:not(.pulling):not(.opening){opacity:.22;transform:translate3d(0,0,-240px) rotateX(0deg) scale3d(1,1,1)}  /* остальные книги — назад и в тень, раскрытая всегда впереди */
 .lib-scene.is-opening .lib-board{opacity:.22;transition:opacity 1.4s}
-.lib-book.zooming{
-  transform:translateZ(520px) translateY(-18vh) scale(2.1);
-  transition:transform var(--lib-anim-zoom,650ms) cubic-bezier(.25,.8,.3,1);
-  box-shadow:-18px 30px 70px rgba(0,0,0,.85),0 0 100px var(--warm-light);
-  z-index:60;
-}
-.lib-book.zooming .bd-spine{opacity:0}
 
 /* ---------- Читалка (разворот) ---------- */
-.lib-reader{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;background:rgba(10,8,5,.9);perspective:2200px}
-.lib-reader.open{display:flex}
+.lib-reader{position:fixed;top:0;right:0;bottom:0;left:0;z-index:60;display:flex;align-items:center;justify-content:center;background:rgba(10,8,5,.9);perspective:2200px;
+  opacity:0;visibility:hidden;pointer-events:none;transition:opacity .6s ease,visibility 0s linear .6s}
+.lib-reader.open{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .6s ease,visibility 0s}
 .lib-spread{display:flex;max-width:min(1000px,95vw);max-height:88svh;border-radius:4px 10px 10px 4px;overflow:hidden;box-shadow:0 34px 90px rgba(0,0,0,.75);background:var(--paper)}
 .lib-page{flex:1;min-width:0;background:var(--paper);color:var(--ink);padding:34px 38px;font-size:17px;line-height:1.78;max-height:88svh;overflow:auto;position:relative}
 .lib-page::before{
-  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5;mix-blend-mode:multiply;
+  content:"";position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none;z-index:0;opacity:.5;mix-blend-mode:multiply;
   background:url("library/pages_open_no_cover.jpg") center/cover no-repeat;
 }
 .lib-page>*{position:relative;z-index:1}
@@ -317,7 +186,7 @@
 
 /* ---- Лупа (два режима, строго за курсором) ---- */
 .lib-lens{position:fixed;z-index:99;pointer-events:none;display:none;width:260px;height:260px;border-radius:50%;border:3px solid rgba(255,255,255,.85);box-shadow:0 0 0 2px rgba(0,0,0,.4),0 12px 32px rgba(0,0,0,.55),inset 0 0 44px rgba(30,20,5,.4);overflow:hidden;transform:translate(-50%,-50%)}
-.lib-lens::after{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:inset 0 0 42px rgba(30,20,5,.4)}
+.lib-lens::after{content:"";position:absolute;top:0;right:0;bottom:0;left:0;border-radius:50%;box-shadow:inset 0 0 42px rgba(30,20,5,.4)}
 #libraryApp.lib-lens-on{cursor:zoom-in}
 
 /* ---- Кнопка-заглушка видео ---- */
@@ -333,5 +202,7 @@
   .lib-reader{overflow-y:auto}
 }
 @media (prefers-reduced-motion: reduce){
-  .lib-book,.lib-book.pulling,.lib-book.opening,.lib-book.zooming{transition-duration:.01ms !important}
+  .lib-book,.lib-book .bk,.lib-book .cv,.lib-reader{transition-duration:.01ms !important;transition-delay:0s !important}
 }
+/* служебное: замер положения книги в покое (library.js → placeBook) */
+.lib-book.measure{transform:none !important;transition:none !important}

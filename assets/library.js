@@ -5,7 +5,9 @@
    Контент: статьи (articles.json), обучение (learning), тома (tomes.json), автор, видео-заглушки. */
 (function () {
   "use strict";
-  var BASE = "https://neuro-retree.github.io/site/";
+  var SLOW = true;   // <-- переключатель: true = отладка, false = быстрая боевая анимация
+  var REDUCE = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  var BASE = "https://neuro-retree.github.io/";
 var CONFIG = {
  books: [
  /* ВРЕМЕННО скрыты для наладки полки (22.10.2026):
@@ -22,9 +24,14 @@ var CONFIG = {
 ,{ id: "author",   title: "Об авторе",color: "#6a4a2e", h: 413, w: 62, tag: "личный том", font: "'Libre Baskerville',serif", tone: "gold", tex: "library/tex/leather-author.svg" }
  */
     ],
-    /* ВРЕМЕННО (23.10.2026): замедлено для наблюдения.
-       Раскрытие: 2000 + 5000 + 3000 = 10 секунд. Должно совпадать с --lib-anim-* в CSS. */
-    anim: { pull: 2000, open: 5000, zoom: 3000, close: 3000, ret: 2000 }
+    /* ДЛИТЕЛЬНОСТИ — единственное место. JS пишет текущую фазу в CSS-переменную --tt на книге,
+       CSS своих копий не имеет, поэтому рассинхрон невозможен.
+       SLOW = true — замедленно для наладки (10 с); SLOW = false — боевой режим (~2,2 с). */
+    anim: REDUCE
+      ? { pull: 30, open: 30, zoom: 30, close: 30, ret: 30, back: 30 }      // «уменьшить движение» в системе: без анимации
+      : SLOW
+        ? { pull: 2000, open: 5000, zoom: 3000, close: 3000, ret: 2000, back: 1000 }
+        : { pull: 700,  open: 900,  zoom: 650,  close: 650,  ret: 800,  back: 450 }
   };
   var state = "shelf", sel = -1, cur = 0, pages = [], quiet = false;
 
@@ -183,30 +190,29 @@ var CONFIG = {
       book.tabIndex = 0;
       book.setAttribute("role", "button");
       book.setAttribute("aria-label", "Открыть книгу " + b.title);
-      // 5 параллелепипедов: корешок (П5), блок страниц (П1), одна страница (П2),
-      // левая обложка (П3), правая обложка (П4 с названием).
-      // Каждый блок — куб из 6 граней (front/back/left/right/top/bottom).
-      function cube(cls, extra) {
-        var d = el("div", "bd " + cls);
-        ["front","back","left","right","top","bottom"].forEach(function (f) {
-          d.appendChild(el("div", "face face-" + f));
+      // Книга = корешок + задняя обложка + правая половина страниц + шарнир передней обложки
+      // (передняя обложка и левая половина страниц откидываются вместе, как у настоящей книги).
+      // Все детали, кроме корешка, — настоящие параллелепипеды из 6 граней (см. library.css).
+      function box(cls) {
+        var d = el("div", "box " + cls);
+        ["front", "back", "right", "left", "top", "bottom"].forEach(function (f) {
+          d.appendChild(el("div", "f f-" + f));
         });
-        if (extra) extra(d);
         return d;
       }
-      var bdSpine = cube("bd-spine", function (d) {
-        d.appendChild(el("div", "title", b.title));
-      });
-      var bdPages = cube("bd-pages-block");
-      var bdSingle = cube("bd-single-page");
-      // Название — на ПЕРЕДНЕЙ обложке (левая, .bd-cover-l), как в модели:
-      // передняя обложка при раскрытии идёт влево и обращена к зрителю.
-      var bdCoverL = cube("bd-cover-l", function (d) {
-        d.querySelector(".face-front").appendChild(el("div", "title", b.title));
-      });
-      var bdCoverR = cube("bd-cover-r");
-      book.appendChild(bdSpine); book.appendChild(bdPages);
-      book.appendChild(bdSingle); book.appendChild(bdCoverL); book.appendChild(bdCoverR);
+      var bk = el("div", "bk");
+      var spine = el("div", "bk-spine");
+      spine.appendChild(el("div", "title", b.title));
+      var back = box("bk-back");
+      var pr = box("bk-pr");
+      var cv = el("div", "cv");
+      var front = box("bk-front");
+      front.querySelector(".f-front").appendChild(el("div", "title", b.title));
+      var pl = box("bk-pl");
+      cv.appendChild(front); cv.appendChild(pl);
+      bk.appendChild(spine); bk.appendChild(back); bk.appendChild(pr); bk.appendChild(cv);
+      book.appendChild(bk);
+      book.appendChild(el("div", "lib-hit"));
       book.addEventListener("click", function () { openBook(i); });
       book.addEventListener("keydown", function (e) {
         if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openBook(i); }
@@ -258,26 +264,70 @@ var CONFIG = {
   }
 
   /* ================= АНИМАЦИИ: открытие книги ================= */
+  /* Текущая фаза → длительность всех переходов на сцене (читает CSS: var(--tt); наследуется всеми книгами,
+     поэтому остальные книги отъезжают и возвращаются синхронно с выбранной). */
+  function phase(book, ms) { scene.style.setProperty("--tt", ms + "ms"); }
+
+  /* Куда ехать и насколько увеличиваться: центр окна; масштаб — по ширине разворота (2 обложки)
+     и высоте книги, чтобы разворот целиком влезал в окно. Считаем по книге «в покое». */
+  function placeBook(book) {
+    book.classList.add("measure");                       // .measure = transform:none без перехода (см. CSS)
+    var r = book.getBoundingClientRect();
+    book.classList.remove("measure");
+    var cs = getComputedStyle(book);
+    var W = parseFloat(cs.getPropertyValue("--cw")) || 256;   // ширина обложки
+    var H = parseFloat(cs.getPropertyValue("--bh")) || 465;   // высота книги
+    var dx = window.innerWidth / 2 - (r.left + r.width / 2);
+    var dy = window.innerHeight / 2 - (r.top + r.height / 2);
+    var zoom = Math.min(0.92 * window.innerWidth / (2 * W), 0.86 * window.innerHeight / H, 2.6);
+    book.style.setProperty("--dx", dx.toFixed(1) + "px");
+    book.style.setProperty("--dy", dy.toFixed(1) + "px");
+    book.style.setProperty("--s-zoom", zoom.toFixed(3));
+    book.style.setProperty("--s-open", (zoom * 0.72).toFixed(3));
+  }
+
+  /* Блокировка прокрутки страницы, пока книга открыта: иначе книга (она позиционируется относительно окна)
+     «уплывёт» при прокрутке. Ширину полосы прокрутки компенсируем отступом — страница не дёргается. */
+  function lockScroll(on) {
+    var de = document.documentElement;
+    if (on) {
+      var sw = window.innerWidth - de.clientWidth;
+      de.style.overflow = "hidden";
+      if (sw > 0) de.style.paddingRight = sw + "px";
+    } else {
+      de.style.overflow = "";
+      de.style.paddingRight = "";
+    }
+  }
+  function setOpen(on) {
+    if (mount) mount.classList.toggle("is-open", on);
+    lockScroll(on);
+  }
+
   function openBook(i) {
     if (!canNext(state, "pulling")) return;
     go("pulling"); sel = i;
     var book = row.children[i];
+    setOpen(true);                                       // снять обрезку контейнера, включить тёмный фон и блок прокрутки
+    placeBook(book);
     Sound.play("pull", .5);
-    book.classList.add("pulling");
+    phase(book, CONFIG.anim.pull);
+    book.classList.add("pulling");                       // 1. вытягивание к зрителю
     setTimeout(function () {
       if (state !== "pulling") return;
       go("opening");
       scene.classList.add("is-opening");
       Sound.play("open", .45);
-      book.classList.add("opening");
+      phase(book, CONFIG.anim.open);
+      book.classList.add("opening");                     // 2. в центр + лицом к зрителю + обложка откидывается
       setTimeout(function () {
         if (state !== "opening") return;
         go("zooming");
-        book.classList.add("zooming");
+        phase(book, CONFIG.anim.zoom);
+        book.classList.add("zooming");                   // 3. приближение
         setTimeout(function () {
           if (state !== "zooming") return;
-          book.style.visibility = "hidden";
-          showReader(i);
+          showReader(i);                                 // книгу спрячем под читалкой (см. showReader)
         }, CONFIG.anim.zoom);
       }, CONFIG.anim.open);
     }, CONFIG.anim.pull);
@@ -287,24 +337,28 @@ var CONFIG = {
     if (!canNext(state, "closing")) return;
     go("closing");
     Sound.play("flip", .4);
-    reader.classList.remove("open");
     var book = row.children[sel];
     book.style.visibility = "";
+    reader.classList.remove("open");
     scene.classList.remove("is-opening");
-    // Полноценный обратный сценарий: книга возвращается из режима zooming
-    // в состояние opening (закрывается разворот), затем на полку.
-    book.classList.remove("zooming");
+    phase(book, CONFIG.anim.close);
+    book.classList.remove("zooming");                    // 1. отъезд назад (книга снова раскрыта в центре)
     setTimeout(function () {
       if (state !== "closing") return;
       go("returning");
       Sound.play("return", .45);
-      // снимаем opening — книга сворачивается обратно на полку
-      book.classList.remove("opening");
+      phase(book, CONFIG.anim.ret);
+      book.classList.remove("opening");                  // 2. обложка закрывается, книга поворачивается корешком
       setTimeout(function () {
         if (state !== "returning") return;
-        book.classList.remove("pulling");
-        go("shelf"); sel = -1;
-        if (book && book.focus) { try { book.focus(); } catch (e) {} }
+        phase(book, CONFIG.anim.back);
+        book.classList.remove("pulling");                // 3. задвигается на полку
+        setTimeout(function () {
+          scene.style.removeProperty("--tt");            // дальше — обычные переходы наведения
+          setOpen(false);                                // вернуть обрезку/прокрутку, фон плавно гаснет
+          go("shelf"); sel = -1;
+          if (book && book.focus) { try { book.focus({ preventScroll: true }); } catch (e) {} }
+        }, CONFIG.anim.back);
       }, CONFIG.anim.ret);
     }, CONFIG.anim.close);
   }
@@ -332,6 +386,10 @@ var CONFIG = {
       reader.classList.add("open");
       renderRead();
       posSave();
+      setTimeout(function () {
+        var bk = row.children[i];
+        if (bk && state === "reading") bk.style.visibility = "hidden";
+      }, 650);
     }
     if (id === "articles") articlePages(done);
     else if (id === "learning") learningPages(done);

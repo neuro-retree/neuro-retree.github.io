@@ -1,7 +1,7 @@
 # Нейросети для жизни
 
 > Сайт Татьяны Зениной: практические объяснения нейросетей простыми словами для людей старшего возраста (50+).
-> Главная: https://neuro-retree.github.io/site/
+> Главная: https://neuro-retree.github.io/
 > Репозиторий: https://github.com/neuro-retree/site
 > Telegram: https://t.me/neuro_retree
 > Книги: напишите https://t.me/tatzenbot
@@ -10,34 +10,34 @@
 
 ## Каталог статей
 
-- https://neuro-retree.github.io/site/articles/ — каталог с поиском и фильтром по темам
+- https://neuro-retree.github.io/articles/ — каталог с поиском и фильтром по темам
 
 ## Статьи
 
-- https://neuro-retree.github.io/site/articles/article_2fa_zashchita/ — Двухфакторная защита за 5 минут: второй замок для пенсии и Госуслуг
-- https://neuro-retree.github.io/site/articles/article_33_dipfeyki/ — Поддельный голос внука: как распознать дипфейк и не отдать деньги
-- https://neuro-retree.github.io/site/articles/article_gosuslugi_vyplaty/ — Госуслуги: как узнать, какие выплаты и льготы вам положены
-- https://neuro-retree.github.io/site/articles/article_spisali_za_prilozhenie/ — Списали деньги за бесплатное приложение — как отключить подписку и вернуть своё
-- https://neuro-retree.github.io/site/articles/article_152fz_dannye/ — 152-ФЗ: ваши данные, ваши права — просто о главном
-- https://neuro-retree.github.io/site/articles/article_statiny_6_mifov/ — Статины: 6 мифов, о которых важно знать
-- https://neuro-retree.github.io/site/articles/article_bady_riski/ — БАДы: правда и риски, чтобы не навредить себе
-- https://neuro-retree.github.io/site/articles/article_davlenie_posle_60/ — Давление после 60: какая норма и как контролировать
-- https://neuro-retree.github.io/site/articles/article_20_cheklist_10_vecherov/ — Чек-лист «10 вечеров»: бесплатный старт в нейросетях
+- https://neuro-retree.github.io/articles/article_2fa_zashchita/ — Двухфакторная защита за 5 минут: второй замок для пенсии и Госуслуг
+- https://neuro-retree.github.io/articles/article_33_dipfeyki/ — Поддельный голос внука: как распознать дипфейк и не отдать деньги
+- https://neuro-retree.github.io/articles/article_gosuslugi_vyplaty/ — Госуслуги: как узнать, какие выплаты и льготы вам положены
+- https://neuro-retree.github.io/articles/article_spisali_za_prilozhenie/ — Списали деньги за бесплатное приложение — как отключить подписку и вернуть своё
+- https://neuro-retree.github.io/articles/article_152fz_dannye/ — 152-ФЗ: ваши данные, ваши права — просто о главном
+- https://neuro-retree.github.io/articles/article_statiny_6_mifov/ — Статины: 6 мифов, о которых важно знать
+- https://neuro-retree.github.io/articles/article_bady_riski/ — БАДы: правда и риски, чтобы не навредить себе
+- https://neuro-retree.github.io/articles/article_davlenie_posle_60/ — Давление после 60: какая норма и как контролировать
+- https://neuro-retree.github.io/articles/article_20_cheklist_10_vecherov/ — Чек-лист «10 вечеров»: бесплатный старт в нейросетях
 
 ## Инструменты
 
-- https://neuro-retree.github.io/site/tools/prompt-builder/ — Конструктор запросов к нейросети
-- https://neuro-retree.github.io/site/tools/sms-checker/ — Проверка подозрительного сообщения
+- https://neuro-retree.github.io/tools/prompt-builder/ — Конструктор запросов к нейросети
+- https://neuro-retree.github.io/tools/sms-checker/ — Проверка подозрительного сообщения
 
 ## Обучение
 
-- https://neuro-retree.github.io/site/learning/ — Три учебных маршрута: знакомство с ИИ, повседневные задачи, создание своих материалов
+- https://neuro-retree.github.io/learning/ — Три учебных маршрута: знакомство с ИИ, повседневные задачи, создание своих материалов
 
 ## Машинные данные
 
-- https://neuro-retree.github.io/site/data/articles.json — реестр статей (JSON)
+- https://neuro-retree.github.io/data/articles.json — реестр статей (JSON)
 
 ## Важно
 
 У каждой статьи есть постоянный адрес. Markdown-исходники статей лежат в репозитории
-и доступны по адресу https://raw.githubusercontent.com/neuro-retree/site/main/<имя_статьи>.md.
+и доступны по адресу https://raw.githubusercontent.com/neuro-retree/neuro-retree.github.io/main/<имя_статьи>.md.
