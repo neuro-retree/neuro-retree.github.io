@@ -44,10 +44,12 @@ def main() -> int:
                 continue
             if ref.endswith("/"):
                 ok = (page.parent / ref / "index.html").exists() or (page.parent / ref).exists()
-            elif ref.startswith("/"):
-                ok = (ROOT / ref.lstrip("/")).exists()
             else:
-                ok = (page.parent / ref).exists()
+                ref_clean = ref.split("?")[0]
+                if ref.startswith("/"):
+                    ok = (ROOT / ref_clean.lstrip("/")).exists()
+                else:
+                    ok = (page.parent / ref_clean).exists()
             if not ok:
                 errors.append(f"{page.relative_to(ROOT)}: битая локальная ссылка {ref}")
 

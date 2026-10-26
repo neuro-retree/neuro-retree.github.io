@@ -860,7 +860,8 @@ def build_home():
 
 def build_aux():
     (ROOT / "data").mkdir(parents=True, exist_ok=True)
-    urls = ["", "articles/", "tools/", "tools/prompt-builder/", "tools/sms-checker/", "learning/"]
+    urls = ["", "articles/", "tools/", "tools/prompt-builder/", "tools/sms-checker/",
+            "tools/pamiatka/", "learning/", "slovar/", "books/"]
     urls += ["articles/%s/" % a["slug"] for a in ARTICLES]
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>',
                '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']

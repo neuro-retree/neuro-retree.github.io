@@ -10,19 +10,16 @@
   var BASE = "https://neuro-retree.github.io/";
 var CONFIG = {
  books: [
- /* ВРЕМЕННО скрыты для наладки полки (22.10.2026):
- { id: "articles", title: "Статьи",   color: "#5b3a2e", h: 440, w: 66, tag: "сборник публикаций", font: "'EB Garamond',serif", tone: "gold", tex: "library/tex/leather-articles.svg" },
- { id: "learning", title: "Обучение", color: "#2f4a3a", h: 400, w: 58, tag: "учебник", font: "'Jost',sans-serif", tone: "silver", tex: "library/tex/leather-learning.svg" },
- */
-{ id: "book",     title: "Книга",    color: "#4a3a69", h: 465, w: 84, tag: "четыре тома", font: "'Playfair Display',serif", tone: "gold",
-      /* Тестовая палитра для наладки полки (23.10.2026): каждый элемент — свой цвет.
-         c-body зелёный, c-spine красный, c-cover синий, c-cover-back зелёный, c-pages жёлтый, c-edge оранжевый.
-         Для раскраски граней JS ставит эти значения в CSS-переменные книги. */
-      colors: { body: "#3a6b35", spine: "#b3261e", cover: "#2e6cb3", coverBack: "#3a6b35", pages: "#e8c840", edge: "#e07b1f" } }
-/* ВРЕМЕННО скрыты для наладки полки (22.10.2026):
-,{ id: "video",    title: "Видео",    color: "#3a4a69", h: 373, w: 52, tag: "видеоальбом", font: "'Montserrat',sans-serif", tone: "silver", tex: "library/tex/leather-video.svg" }
-,{ id: "author",   title: "Об авторе",color: "#6a4a2e", h: 413, w: 62, tag: "личный том", font: "'Libre Baskerville',serif", tone: "gold", tex: "library/tex/leather-author.svg" }
- */
+ { id: "articles", title: "Статьи",   color: "#5b3a2e", h: 440, w: 66, tag: "сборник публикаций", font: "'EB Garamond',serif", tone: "gold", tex: "library/tex/leather-articles.svg",
+      colors: null },
+ { id: "learning", title: "Обучение", color: "#2f4a3a", h: 400, w: 58, tag: "учебник", font: "'Jost',sans-serif", tone: "silver", tex: "library/tex/leather-learning.svg",
+      colors: null },
+ { id: "book",     title: "Книга",    color: "#4a3a69", h: 465, w: 84, tag: "четыре тома", font: "'Playfair Display',serif", tone: "gold",
+      colors: null, tex: "library/tex/leather-book.svg" },
+ { id: "video",    title: "Видео",    color: "#3a4a69", h: 373, w: 52, tag: "видеоальбом", font: "'Montserrat',sans-serif", tone: "silver", tex: "library/tex/leather-video.svg",
+      colors: null },
+ { id: "author",   title: "Об авторе",color: "#6a4a2e", h: 413, w: 62, tag: "личный том", font: "'Libre Baskerville',serif", tone: "gold", tex: "library/tex/leather-author.svg",
+      colors: null }
     ],
     /* ДЛИТЕЛЬНОСТИ — единственное место. JS пишет текущую фазу в CSS-переменную --tt на книге,
        CSS своих копий не имеет, поэтому рассинхрон невозможен.
@@ -133,16 +130,29 @@ var CONFIG = {
     var book = row.children[i];
     if (!book) return;
     book.style.setProperty("--shade", shade.toFixed(3));
+    // --shade-alpha: затемнение граней по источнику света (0 = светлые, 0.4 = тёмные).
+    // Открытая книга приглушается дальше (контент читалки должен читаться).
+    var dim = book.classList.contains("pulling") || book.classList.contains("opening") ||
+              book.classList.contains("zooming") ? 0.05 : 0;
+    book.style.setProperty("--shade-alpha", Math.min(0.42, Math.max(0, shade - 0.28) + dim).toFixed(3));
+    // Тень в слое теней: её центр — под корешком книги (по offsetLeft книги),
+    // смещение от источника света (свет справа → тень влево, dir).
+    var r = book.getBoundingClientRect();
     var sh = shadowMap.get(book);
-    if (sh) sh.style.transform = "translateX(" + (dir * 6) + "px)";
+    if (sh) {
+      sh.style.left = (r.left - scene.getBoundingClientRect().left + r.width / 2 - 45) + "px";
+      sh.style.transform = "translateX(" + (-dir * 14) + "px)";
+    }
   }
   function startLightLoop() {
     if (lightTimer) return;
     lightTimer = setInterval(function () {
       if (lightPaused || document.hidden) return; // не делаем невидимую работу (вкладка скрыта)
-      var books = row.children;
-      for (var i = 0; i < books.length; i++) {
-        var r = books[i].getBoundingClientRect();
+      for (var i = 0; i < CONFIG.books.length; i++) {
+        // книги в .lib-row идут с индекса 0 (слой теней теперь в .lib-shelf)
+        var bEl = row.children[i];
+        if (!bEl || !bEl.classList || !bEl.classList.contains("lib-book")) continue;
+        var r = bEl.getBoundingClientRect();
         var cx = (r.left + r.width / 2) - (window.innerWidth / 2);
         computeShadow(i, cx / (window.innerWidth / 2) * 0.5 + 0.5);
       }
@@ -164,6 +174,13 @@ var CONFIG = {
     scene = el("div", "lib-scene");
     shelf = el("div", "lib-shelf");
     row = el("div", "lib-row");
+    // Задняя вертикальная планка полки: стена позади книг, чтобы при открытии/закрытии
+    // книги сквозь текстуры не просвечивал фон страницы (раньше виден был просвет).
+    // Вставляется ДО книг, поэтому в 3D-родителе лежит за ними (z=-1), но перекрывает
+    // только то, что позади книг, и не мешает открывающейся книге выходить вперёд.
+    var backboard = el("div", "lib-backboard");
+    shelf.appendChild(backboard);
+    var shadowLayer = el("div", "lib-shadows");
     CONFIG.books.forEach(function (b, i) {
       var book = el("div", "lib-book");
       book.style.setProperty("--bc", b.color);
@@ -181,12 +198,13 @@ var CONFIG = {
       book.style.setProperty("--cw", Math.round(b.h * 0.55) + "px");
       if (b.font) book.style.setProperty("--book-font", b.font);
       if (b.tone) book.style.setProperty("--book-tone", b.tone);
-      // ВРЕМЕННО: текстуры отключены для наладки полки (22.10.2026) — книги сплошного цвета (--bc).
-      // if (b.tex) book.style.setProperty("--tex", "url(" + BASE + "assets/" + b.tex + ")");
+      // Текстуры: каждая книга получает свою обложку-текстуру (ледерин с градиентом и зерном),
+      // страницы и срез — единую бумажную текстуру (paper.svg / paper-edge.svg).
+      if (b.tex) book.style.setProperty("--tex", "url(" + BASE + "assets/" + b.tex + ")");
       // тень на полку (элемент для динамического смещения в computeShadow)
       var sh = el("div", "lib-box-shadow");
       shadowMap.set(book, sh);
-      book.appendChild(sh);
+      shadowLayer.appendChild(sh);
       book.tabIndex = 0;
       book.setAttribute("role", "button");
       book.setAttribute("aria-label", "Открыть книгу " + b.title);
@@ -221,6 +239,10 @@ var CONFIG = {
     });
     shelf.appendChild(row);
     shelf.appendChild(el("div", "lib-board"));
+    // Слой падающих теней — после доски в DOM: в preserve-3d z-index не работает,
+    // поэтому тень должна идти позже доски, чтобы рисоваться поверх неё (но под книгами:
+    // книги в 3D стоят выше плоскости z=0, тень лежит на ней).
+    shelf.appendChild(shadowLayer);
     scene.appendChild(shelf);
 
     reader = el("div", "lib-reader");

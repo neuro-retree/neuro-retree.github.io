@@ -1,4 +1,4 @@
-/* library.css — интерактивная книжная полка «Нейросети для жизни».
+﻿/* library.css — интерактивная книжная полка «Нейросети для жизни».
    Стилизованная под фотореализм 3D-сцена старинной библиотеки:
    камера снизу спереди, тёмное дерево, классические переплёты, тёплый свет.
    Состояния: shelf -> pulling -> opening -> zooming -> reading -> closing -> returning. */
@@ -35,7 +35,20 @@
   background:radial-gradient(45% 32% at 50% -4%,rgba(255,206,130,.22),rgba(255,206,130,.05) 55%,transparent 78%);
 }
 .lib-shelf{width:min(1120px,94vw);transform:rotateX(var(--tilt,8deg)) translateY(2vh);transform-style:preserve-3d}
+/* Задняя планка полки: вертикальная «стена» позади книг, чтобы при открытии/закрытии
+   книги сквозь текстуры не просвечивал фон страницы. В 3D лежит за книгами (z=-1),
+   цвет — тёмное дерево в тон доски полки; верхняя кромка чуть подсвечена «лампой». */
+.lib-backboard{position:absolute;left:-14px;right:-14px;top:-6px;bottom:calc(var(--shelf-h,24px) - 4px);
+  transform:translateZ(-2px);pointer-events:none;
+  background:linear-gradient(180deg,#2a1a10 0%,#3d2717 45%,#1e1209 100%);
+  box-shadow:0 2px 14px rgba(0,0,0,.55);border-radius:3px 3px 0 0}
 .lib-row{display:flex;align-items:flex-end;justify-content:center;gap:clamp(4px,1.1vw,16px);padding:26px 16px 0;transform-style:preserve-3d}
+/* Слой падающих теней книг (создаёт library.js): 2D-плоскость поверх полки под книгами.
+   Тени здесь не участвуют в 3D-поворотах книги, поэтому лежат на полке и смещаются
+   от источника света (свет сверху-справа → тень влево). */
+.lib-shadows{position:absolute;left:0;right:0;bottom:10px;height:40px;pointer-events:none;z-index:6;transform:translateZ(0)}
+/* Доска полки рисуется после .lib-row и перекрывала тени — держим её под слоем теней */
+.lib-shelf > .lib-board{z-index:0;position:relative}
 .lib-board{height:var(--shelf-h);background:linear-gradient(180deg,#775337,#392419 70%,#170f0a);box-shadow:0 16px 30px rgba(0,0,0,.6);border-radius:2px}
 
 /* ---- Книга на полке ------------------------------------------------------
@@ -70,9 +83,14 @@
 .lib-book:not(.pulling):hover,.lib-book:not(.pulling):focus-visible{transform:translate3d(0,-14px,24px) rotateX(0deg) scale3d(1,1,1)}
 .lib-book:focus-visible{outline:2px solid var(--gold);outline-offset:5px}
 .lib-book:hover .bk-spine{box-shadow:inset 0 0 0 1px rgba(0,0,0,.25),0 0 28px var(--warm-light)}
-/* Тень на полке (элемент создаёт JS; computeShadow двигает его по X) */
-.lib-box-shadow{position:absolute;left:-6px;right:-6px;bottom:-4px;height:12px;border-radius:50%;
-  background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,.55),transparent 70%);pointer-events:none}
+/* Тень на полке (элемент создаёт JS; computeShadow двигает его по X).
+   Падающая тень от источника света сверху-справа: смещение влево, тень длиннее и мягче.
+   Тень выносится из книги в .lib-shelf (уровень сцены), чтобы её было видно под корешком —
+   у книги overflow/плоская проекция не давали тени выйти за пределы её собственного бокса. */
+.lib-shelf .lib-box-shadow{position:absolute;bottom:6px;height:44px;border-radius:50%;width:96px;
+  transform:translateX(0);left:0;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,.72),rgba(0,0,0,.36) 50%,transparent 72%);
+  filter:blur(2.5px);transition:transform .4s ease,width .3s ease,filter .3s ease}
 /* Невидимая «кнопка» поверх корешка: клик гарантированно попадает в книгу (в 3D-сцене клики
    по граням перспективно повёрнутых деталей теряются — проверено elementFromPoint) */
 .lib-book .lib-hit{position:absolute;top:0;right:0;bottom:0;left:0;transform:translateZ(2px)}
@@ -121,13 +139,39 @@
 .lib-book .bk-pr   {--w:calc(var(--cw,220px) - var(--fore));--h:calc(var(--bh,413px) - 2*var(--ovh));--d:calc(var(--pg)/2);--y:var(--ovh);--z:calc(var(--pg)/-4)}
 .lib-book .bk-pl   {--w:calc(var(--cw,220px) - var(--fore));--h:calc(var(--bh,413px) - 2*var(--ovh));--d:calc(var(--pg)/2);--y:var(--ovh);--z:calc(var(--pg)/4)}
 
-/* Цвета (тестовая палитра; потом заменить на фирменные цвета/текстуры) */
+/* Цвета и текстуры (25.10.2026): каждая книга — своя обложка-текстура (leather-*.svg),
+   страницы — бумага (paper.svg), срез страниц — paper-edge.svg (видны слои листов). */
+/* Лицевая и задняя обложки и корешок: ледериновая текстура поверх базового цвета,
+   + динамическое затенение от источника света сверху справа (--shade-alpha ставит library.js) */
 .lib-book .bk-back .f {background:var(--c-cover-back,var(--bc,#3a6b35))}
 .lib-book .bk-front .f{background:var(--c-cover,var(--bc,#2e6cb3))}
 .lib-book .bk-front .f-back{background:var(--c-cover,var(--bc,#2e6cb3));background:color-mix(in srgb,var(--c-cover,var(--bc,#2e6cb3)) 78%,#fff)} /* изнанка обложки чуть светлее */
-.lib-book .bk-pr .f,.lib-book .bk-pl .f{background:var(--c-edge,#d8c79c)}                  /* срез страниц */
+.lib-book .bk-spine{
+  background:
+    linear-gradient(rgba(12,6,3,var(--shade-alpha,0.22)),rgba(12,6,3,var(--shade-alpha,0.22))),
+    var(--tex, none) center/cover no-repeat,
+    var(--c-spine,var(--bc,#b3261e));
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.25)}
+/* Все грани обложек: текстура + затенение по источнику света */
+.lib-book .bk-back .f-front,
+.lib-book .bk-back .f-back,
+.lib-book .bk-back .f-right,
+.lib-book .bk-back .f-left,
+.lib-book .bk-back .f-top,
+.lib-book .bk-back .f-bottom,
+.lib-book .bk-front .f-front,
+.lib-book .bk-front .f-back,
+.lib-book .bk-front .f-right,
+.lib-book .bk-front .f-left,
+.lib-book .bk-front .f-top,
+.lib-book .bk-front .f-bottom{
+  background:
+    linear-gradient(rgba(12,6,3,var(--shade-alpha,0.22)),rgba(12,6,3,var(--shade-alpha,0.22))),
+    var(--tex, none) center/cover no-repeat,
+    var(--c-cover,var(--bc,#2e6cb3))}
+.lib-book .bk-pr .f,.lib-book .bk-pl .f{background:url("tex/paper-edge.svg") no-repeat center/cover,var(--c-edge,#d8c79c)}
 .lib-book .bk-pr .f-front,.lib-book .bk-pr .f-back,
-.lib-book .bk-pl .f-front,.lib-book .bk-pl .f-back{background:var(--c-pages,#efe3c4)}      /* листы */
+.lib-book .bk-pl .f-front,.lib-book .bk-pl .f-back{background:url("tex/paper.svg") no-repeat center/cover,var(--c-pages,#efe3c4)}
 
 /* Подписи: на корешке — вертикально, на лицевой обложке — по центру */
 .lib-book .bk-spine .title{
