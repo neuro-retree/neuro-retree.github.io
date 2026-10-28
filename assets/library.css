@@ -200,9 +200,14 @@
     linear-gradient(rgba(12,6,3,var(--shade-alpha,0.22)),rgba(12,6,3,var(--shade-alpha,0.22))),
     var(--tex, none) center/cover no-repeat,
     var(--c-cover,var(--bc,#2e6cb3))}
-.lib-book .bk-pr .f,.lib-book .bk-pl .f{background:url("library/tex/paper-edge.svg") no-repeat center/cover,var(--c-edge,#d8c79c)}
+.lib-book .bk-pr .f,.lib-book .bk-pl .f{background:var(--c-edge,#d8c79c)}
 .lib-book .bk-pr .f-front,.lib-book .bk-pr .f-back,
-.lib-book .bk-pl .f-front,.lib-book .bk-pl .f-back{background:url("library/tex/paper.svg") no-repeat center/cover,var(--c-pages,#efe3c4)}
+.lib-book .bk-pl .f-front,.lib-book .bk-pl .f-back{
+  background:
+    linear-gradient(180deg,rgba(255,253,242,.6),rgba(214,196,152,.35)),
+    var(--c-pages,#efe3c4);
+  box-shadow:inset 0 0 14px rgba(120,90,40,.14);
+}
 
 /* Подписи: на корешке — вертикально, на лицевой обложке — по центру */
 .lib-book .bk-spine .title{
