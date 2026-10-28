@@ -267,8 +267,10 @@ var CONFIG = {
 
     spread = el("div", "lib-spread");
     pL = el("div", "lib-page left");
+    // Корешок между страницами (переплёт) — имитация сгиба книги
+    var gutter = el("div", "lib-gutter");
     pR = el("div", "lib-page right");
-    spread.appendChild(pL); spread.appendChild(pR);
+    spread.appendChild(pL); spread.appendChild(gutter); spread.appendChild(pR);
     reader.appendChild(bar); reader.appendChild(spread);
 
     lens = el("div", "lib-lens");

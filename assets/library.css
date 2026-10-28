@@ -218,9 +218,30 @@
   content:"";position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none;z-index:0;opacity:.5;mix-blend-mode:multiply;
   background:url("library/pages_open_no_cover.jpg") center/cover no-repeat;
 }
-.lib-page>*{position:relative;z-index:1}
-.lib-page.left{border-radius:4px 0 0 4px;box-shadow:inset 16px 0 22px -18px rgba(60,40,10,.6)}
-.lib-page.right{border-radius:0 8px 8px 0;box-shadow:inset -16px 0 22px -18px rgba(60,40,10,.55)}
+/* Корешок (переплёт) между страницами разворота */
+.lib-gutter{
+  flex:0 0 30px;position:relative;
+  background:
+    url("library/tex/spine-tactile.svg") center/cover no-repeat,
+    linear-gradient(180deg,#8a6f4e,#6e5639 45%,#5a452e);
+  box-shadow:
+    inset 3px 0 6px rgba(0,0,0,.35),
+    inset -3px 0 6px rgba(255,255,255,.18);
+}
+.lib-gutter::before{
+  content:"";position:absolute;top:0;bottom:0;left:50%;width:2px;transform:translateX(-50%);
+  background:linear-gradient(180deg,rgba(60,40,10,.55),rgba(255,255,255,.25) 50%,rgba(60,40,10,.55));
+}
+/* Усиленная текстура бумаги на страницах + лёгкое «прогибание» у корешка */
+.lib-page{
+  flex:1;min-width:0;color:var(--ink);padding:34px 38px;font-size:17px;line-height:1.78;max-height:88svh;overflow:auto;position:relative;
+  background:
+    url("library/tex/paper.svg") repeat,
+    var(--paper);
+  background-size:320px 320px,auto;
+}
+.lib-page.left{border-radius:4px 0 0 4px;box-shadow:inset 18px 0 26px -16px rgba(60,40,10,.55)}
+.lib-page.right{border-radius:0 4px 4px 0;box-shadow:inset -18px 0 26px -16px rgba(60,40,10,.5)}
 .lib-page h1,.lib-page h2{color:#5a4630;margin:.2em 0 .5em}
 .lib-page ul,.lib-page ol{padding-left:24px}
 .lib-bar{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:70;display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center;background:rgba(22,15,9,.92);padding:10px 16px;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.55);max-width:96vw}
