@@ -117,6 +117,31 @@
 .lib-book .bk-spine{position:absolute;left:calc(var(--bw,84px)/-2);top:0;width:var(--bw,84px);height:var(--bh,413px);
   transform:rotateY(-90deg) translateZ(1px);-webkit-backface-visibility:hidden;backface-visibility:hidden;   /* 1px наружу: иначе z-fighting с торцами страниц и обложек в той же плоскости */
   background:var(--c-spine,var(--bc,#b3261e));box-shadow:inset 0 0 0 1px rgba(0,0,0,.25)}
+/* При раскрытии корешок должен оставаться видимым: он повёрнут на 90°, но в центре разворота.
+   Добавляем ему «двойную» лицевую сторону, которая смотрит на зрителя после поворота .cv. */
+.lib-book.opening .bk-spine,
+.lib-book.zooming .bk-spine{
+  transform:rotateY(-90deg) translateZ(1px);
+}
+/* В раскрытом состоянии обложки НЕ должны перекрывать страницы (их изнанка из-за backface-
+   геометрии разворота рисуется перед светлыми листами). На развороте остаются светлые
+   страницы с корешком по центру — это и есть «открытая книга».
+   Скрываем и сами боксы bk-front/bk-back корпуса: их задние грани (f-back, повёрнутые
+   на 180° и смотрящие на зрителя) тёмные и ложатся поверх светлых страниц. */
+.lib-book.opening .bk-front,
+.lib-book.opening .bk-back,
+.lib-book.zooming .bk-front,
+.lib-book.zooming .bk-back,
+.lib-book.opening .cv,
+.lib-book.zooming .cv{visibility:hidden}
+/* Страницы (правая и левая половины) в раскрытом состоянии: слой листов идёт вглубь,
+   но их ТОРЦЫ обращены к зрителю — как у настоящего раскрытого блока страниц. */
+.lib-book.opening .bk-pr,
+.lib-book.opening .bk-pl,
+.lib-book.zooming .bk-pr,
+.lib-book.zooming .bk-pl{
+  transform:translateZ(calc(var(--z,0px) + 2px));
+}
 
 /* Универсальный параллелепипед: 6 граней вокруг центра. Размеры — --w (ширина), --h (высота),
    --d (толщина), положение — --y (сверху) и --z (по глубине, центр). */
@@ -136,8 +161,14 @@
 /* Детали (глубина z: перед книги = +T/2, зад = −T/2; T = --bw) */
 .lib-book .bk-back {--w:var(--cw,220px);--h:var(--bh,413px);--d:var(--th);--z:calc(var(--pg)/-2 - var(--th)/2)}
 .lib-book .bk-front{--w:var(--cw,220px);--h:var(--bh,413px);--d:var(--th);--z:calc(var(--pg)/2 + var(--th)/2)}
-.lib-book .bk-pr   {--w:calc(var(--cw,220px) - var(--fore));--h:calc(var(--bh,413px) - 2*var(--ovh));--d:calc(var(--pg)/2);--y:var(--ovh);--z:calc(var(--pg)/-4)}
-.lib-book .bk-pl   {--w:calc(var(--cw,220px) - var(--fore));--h:calc(var(--bh,413px) - 2*var(--ovh));--d:calc(var(--pg)/2);--y:var(--ovh);--z:calc(var(--pg)/4)}
+.lib-book .bk-pr   {--w:calc(var(--cw,220px) - var(--fore));--h:calc(var(--bh,413px) - 2*var(--ovh));--d:calc(var(--pg)/2);--y:var(--ovh);--z:calc(var(--pg)/-4);left:0}
+/* Левая половина страниц должна лежать СЛЕВА от корешка (ось x=0): её бокс уходит влево на свою
+   ширину и зеркально позиционируется по глубине. Иначе она растёт вправо под переднюю обложку,
+   и в развороте слева от корешка нет светлых страниц — виден только стык обложек.
+   z = pg/4 + th: лицевая грань страниц (f-front, z+d/2 = pg/2+th) оказывается ПЕРЕД изнанкой
+   передней обложки (f-back лежит ровно на z=pg/2) — иначе тёмная изнанка перекрывает светлую
+   бумагу левой страницы (cv в DOM идёт позже bk-pl и рисуется поверх при равной глубине). */
+.lib-book .bk-pl   {--w:calc(var(--cw,220px) - var(--fore));--h:calc(var(--bh,413px) - 2*var(--ovh));--d:calc(var(--pg)/2);--y:var(--ovh);--z:calc(var(--pg)/4 + var(--th));left:calc(-1*(var(--cw,220px) - var(--fore)))}
 
 /* Цвета и текстуры (25.10.2026): каждая книга — своя обложка-текстура (leather-*.svg),
    страницы — бумага (paper.svg), срез страниц — paper-edge.svg (видны слои листов). */
@@ -213,11 +244,6 @@
   opacity:0;visibility:hidden;pointer-events:none;transition:opacity .6s ease,visibility 0s linear .6s}
 .lib-reader.open{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .6s ease,visibility 0s}
 .lib-spread{display:flex;max-width:min(1000px,95vw);max-height:88svh;border-radius:4px 10px 10px 4px;overflow:hidden;box-shadow:0 34px 90px rgba(0,0,0,.75);background:var(--paper)}
-.lib-page{flex:1;min-width:0;background:var(--paper);color:var(--ink);padding:34px 38px;font-size:17px;line-height:1.78;max-height:88svh;overflow:auto;position:relative}
-.lib-page::before{
-  content:"";position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none;z-index:0;opacity:.5;mix-blend-mode:multiply;
-  background:url("library/pages_open_no_cover.jpg") center/cover no-repeat;
-}
 /* Корешок (переплёт) между страницами разворота */
 .lib-gutter{
   flex:0 0 30px;position:relative;
@@ -232,16 +258,18 @@
   content:"";position:absolute;top:0;bottom:0;left:50%;width:2px;transform:translateX(-50%);
   background:linear-gradient(180deg,rgba(60,40,10,.55),rgba(255,255,255,.25) 50%,rgba(60,40,10,.55));
 }
-/* Усиленная текстура бумаги на страницах + лёгкое «прогибание» у корешка */
-.lib-page{
-  flex:1;min-width:0;color:var(--ink);padding:34px 38px;font-size:17px;line-height:1.78;max-height:88svh;overflow:auto;position:relative;
+/* Страницы: светлая бумага с текстурой paper.svg.
+   Старое тёмное фото pages_open_no_cover.jpg больше не используется как фон —
+   оно делало страницы тёмными и «съедало» текстуру бумаги. */
+.lib-page{flex:1;min-width:0;color:var(--ink);padding:34px 38px;font-size:17px;line-height:1.78;max-height:88svh;overflow:auto;position:relative;
   background:
     url("library/tex/paper.svg") repeat,
     var(--paper);
-  background-size:320px 320px,auto;
+  background-size:340px 340px,auto;
 }
 .lib-page.left{border-radius:4px 0 0 4px;box-shadow:inset 18px 0 26px -16px rgba(60,40,10,.55)}
 .lib-page.right{border-radius:0 4px 4px 0;box-shadow:inset -18px 0 26px -16px rgba(60,40,10,.5)}
+.lib-page>*{position:relative;z-index:1}
 .lib-page h1,.lib-page h2{color:#5a4630;margin:.2em 0 .5em}
 .lib-page ul,.lib-page ol{padding-left:24px}
 .lib-bar{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:70;display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center;background:rgba(22,15,9,.92);padding:10px 16px;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.55);max-width:96vw}

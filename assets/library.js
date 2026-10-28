@@ -226,9 +226,13 @@ var CONFIG = {
       var cv = el("div", "cv");
       var front = box("bk-front");
       front.querySelector(".f-front").appendChild(el("div", "title", b.title));
+      // Левая половина страниц живёт в КОРПУСЕ книги (как и правая), а не в шарнире:
+      // при откидывании передней обложки (rotateY(-180)) страница не должна уезжать
+      // вместе с ней, иначе в развороте слева видна только тёмная изнанка обложки.
+      // Обе широкие грани страницы покрыты светлой бумагой (см. library.css).
       var pl = box("bk-pl");
-      cv.appendChild(front); cv.appendChild(pl);
-      bk.appendChild(spine); bk.appendChild(back); bk.appendChild(pr); bk.appendChild(cv);
+      cv.appendChild(front);
+      bk.appendChild(spine); bk.appendChild(back); bk.appendChild(pr); bk.appendChild(pl); bk.appendChild(cv);
       book.appendChild(bk);
       book.appendChild(el("div", "lib-hit"));
       book.addEventListener("click", function () { openBook(i); });
